@@ -18,8 +18,15 @@ export default class Works extends Component {
 						{title: "", to: "./works/homepage/demo6/index.html", src: "./images/homepage/6.png"},
 						{title: "", to: "./works/homepage/demo7/index.html", src: "./images/homepage/7.png"},
 						{title: "nav", to: "./works/nav/demo1/index.html", src: "./images/nav/1.png"},
+						{title: "nav", to: "./works/nav/demo2/index.html", src: "./images/nav/2.png"},
+						{title: "nav", to: "./works/nav/demo3/index.html", src: "./images/nav/3.png"},
+						{title: "nav", to: "./works/nav/demo4/index.html", src: "./images/nav/4.png"},
+						{title: "nav", to: "./works/nav/demo5/index.html", src: "./images/nav/5.png"},
 						{title: "swipper", to: "./works/swipper/demo1/index.html", src: "./images/swipper/1.png"},
 						{title: "section", to: "./works/section/demo1/index.html", src: "./images/section/1.png"},
+						{title: "login", to: "./works/login/demo1/index.html", src: "./images/login/1.png"},
+						{title: "login", to: "./works/login/demo2/index.html", src: "./images/login/2.png"},
+
 					],
 				}
     }
