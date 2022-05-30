@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import * as echarts from "echarts"
+import React, { Component } from 'react'
+import * as echarts from 'echarts'
 
 export default class PieChart extends Component {
 	constructor(props) {
@@ -18,39 +18,39 @@ export default class PieChart extends Component {
 		const seriesData = [
 			{
 				value: 30,
-				name: "云服务",
+				name: '云服务',
 			},
 			{
 				value: 40,
-				name: "解决方案",
+				name: '解决方案',
 			},
 			{
 				value: 10,
-				name: "微服务",
+				name: '微服务',
 			},
 			{
 				value: 20,
-				name: "应用商店",
+				name: '应用商店',
 			},
 		]
 		//圆环和子项颜色
-		const color = ["#FFD200", "#18FFFC", "#92FF0A", "#129BFB"]
+		const color = ['#FFD200', '#18FFFC', '#92FF0A', '#129BFB']
 
 		const option = {
 			backgroundColor: '#1b1d3d',
 			color: color,
 			tooltip: {
-				trigger: "item",
+				trigger: 'item',
 			},
 			legend: {
-				orient: "vertical",
-				right: "5%",
-				top: "center",
+				orient: 'vertical',
+				right: '5%',
+				top: 'center',
 				//
-				icon: "circle",
+				icon: 'circle',
 				itemWidth: 10,
 				textStyle: {
-					color: "#fff",
+					color: '#fff',
 					fontSize: 16,
 				},
 				// 百分比格式化
@@ -76,18 +76,18 @@ export default class PieChart extends Component {
 			},
 			series: [
 				{
-					type: "pie",
-					center: ["25%", "50%"],
+					type: 'pie',
+					center: ['25%', '50%'],
 					// 圆环(中心为空)
-					radius: ["54%", "60%"],
+					radius: ['54%', '60%'],
 					data: seriesData,
 					label: {
 						show: false,
-						position: "center",
-						fontSize: "20",
-						fontWeight: "bold",
-						formatter: "{b}\n\n{c}%",
-						color: "#fff",
+						position: 'center',
+						fontSize: '20',
+						fontWeight: 'bold',
+						formatter: '{b}\n\n{c}%',
+						color: '#fff',
 					},
 					labelLine: {
 						show: true,
@@ -95,7 +95,7 @@ export default class PieChart extends Component {
 					emphasis: {
 						label: {
 							show: true,
-							fontSize: "20",
+							fontSize: '20',
 						},
 					},
 				},

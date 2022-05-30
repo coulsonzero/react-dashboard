@@ -1,13 +1,12 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import BarChart from "@/charts/BarChart"
-import RadarChart from "@/charts/RadarChart"
-import LineChart from "@/charts/LineChart"
-import PieChart from "@/charts/PieChart"
-import GuageChart from "@/charts/GuageChart"
-import PicBar from "@/charts/PicBar"
-import Tableview from "@/container/Tableview"
-
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import BarChart from '@/charts/BarChart'
+import RadarChart from '@/charts/RadarChart'
+import LineChart from '@/charts/LineChart'
+import PieChart from '@/charts/PieChart'
+import GuageChart from '@/charts/GuageChart'
+import PicBar from '@/charts/PicBar'
+import Tableview from '@/container/Tableview'
 
 export default class Dashboard extends Component {
 	constructor(props) {
@@ -19,17 +18,29 @@ export default class Dashboard extends Component {
 			<DashboardStyle>
 				<div className="main-container">
 					<div className="section-title">Dashboard</div>
-                    <div className="chart-container">
-                        <div className="chartBox"><BarChart /></div>
-                        <div className="chartBox"><RadarChart /></div>
-                        <div className="chartBox"><LineChart /></div>
-						<div className="chartBox"><PieChart /></div>
-                        <div className="chartBox"><GuageChart /></div>
-                        <div className="chartBox"><PicBar /></div>
-                    </div>
-                    <div className="table-container">
-                        <Tableview/>
-                    </div>
+					<div className="chart-container">
+						<div className="chartBox">
+							<BarChart />
+						</div>
+						<div className="chartBox">
+							<RadarChart />
+						</div>
+						<div className="chartBox">
+							<LineChart />
+						</div>
+						<div className="chartBox">
+							<PieChart />
+						</div>
+						<div className="chartBox">
+							<GuageChart />
+						</div>
+						<div className="chartBox">
+							<PicBar />
+						</div>
+					</div>
+					<div className="table-container">
+						<Tableview />
+					</div>
 				</div>
 			</DashboardStyle>
 		)
@@ -39,8 +50,8 @@ export default class Dashboard extends Component {
 const DashboardStyle = styled.section`
 	width: 80%;
 	height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	/* background: transparent; */
 	.main-container {
 		padding: 20px;
@@ -70,7 +81,7 @@ const DashboardStyle = styled.section`
 			}
 		}
 		.table-container {
-            padding: 40px 0px;
+			padding: 40px 0px;
 		}
 	}
 `

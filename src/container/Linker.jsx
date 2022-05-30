@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const LinkStyle = styled.a`
-  position: relative;
+	position: relative;
 	text-decoration: none;
 	color: #8a8adf;
 	margin: 10px;
@@ -12,8 +12,8 @@ const LinkStyle = styled.a`
 		position: relative;
 		/* width: 416px; */
 		/* height: 220px; */
-    width: 100%;
-    height: 100%;
+		width: 100%;
+		height: 100%;
 		background-color: rgb(255, 255, 255);
 		border-radius: 7px;
 		box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px 0px, rgb(0 0 0 / 2%) 0px 0px 0px 1px;
@@ -72,9 +72,9 @@ const LinkStyle = styled.a`
 
 export default function Linker({ to, title, src, open }) {
 	return (
-		<LinkStyle href={to} target={open ? "_self" : "_blank"}>
+		<LinkStyle href={to} target={open ? '_self' : '_blank'}>
 			<div className="link-container">
-				<img className={src ? "link-img" : "link-img default-bg"} src={src ? src : undefined} alt={title}/>
+				<img className={src ? 'link-img' : 'link-img default-bg'} src={src ? src : undefined} alt={title} />
 				<div className="shadow">
 					<div className="info">
 						<div className="link-title">{title}</div>
@@ -84,5 +84,3 @@ export default function Linker({ to, title, src, open }) {
 		</LinkStyle>
 	)
 }
-
-
