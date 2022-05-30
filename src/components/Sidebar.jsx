@@ -13,18 +13,18 @@ export default class Sidebar extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			icons: [
-				{icon: <MdSpaceDashboard />, title: "Dashboard"},
-				{icon: <AiOutlineDotChart />, title: "Charts"},
-				{icon: <FaAirbnb />, title: "Analytics"},
-				{icon: <SiVectorworks />, title: "Works"},
-				{icon: <IoSettingsOutline />, title: "Settings"},
+			links: [
+				{icon: MdSpaceDashboard, title: "Dashboard"},
+				{icon: AiOutlineDotChart, title: "Charts"},
+				{icon: FaAirbnb, title: "Analytics"},
+				{icon: SiVectorworks, title: "Works"},
+				{icon: IoSettingsOutline, title: "Settings"},
 			],
 		}
 	}
 
 	render() {
-		const {icons} = this.state
+		const {links} = this.state
 		const {currentLink, setCurLink} = this.props
 
 		return (
@@ -33,12 +33,12 @@ export default class Sidebar extends Component {
 				<div className="side-wrapper">
 					{/* <div className="side-title">MENU</div> */}
 					<div className="side-menu">
-						{icons.map((item, index) => {
+						{links.map((item, index) => {
 							return (
 								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
 								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index} >
 									<a href={'#' + item.title} className="side-item">
-										<div className="side-link">{item.icon}</div>
+										<div className="side-link">{<item.icon />}</div>
 										<span className="side-title">{item.title}</span>
 									</a>
 								</li>
