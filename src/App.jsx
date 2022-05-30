@@ -7,9 +7,9 @@ export default class App extends Component {
 	render() {
 		return (
 			<Div>
-				<div class="app-container">
+				<div className="app-container">
 					<Sidebar />
-					<Dashboard />
+					<Dashboard className="hidden" />
 				</div>
 			</Div>
 		)
@@ -41,5 +41,8 @@ const Div = styled.div`
 		box-shadow: 0 0 0 10px rgb(255 255 255 / 40%);
 		display: flex;
 		overflow: hidden;
+	}
+	.hidden {
+		display: hidden;
 	}
 `

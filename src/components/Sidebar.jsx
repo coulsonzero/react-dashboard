@@ -32,7 +32,7 @@ export default class Sidebar extends Component {
 					<div className="side-menu">
 						{icons.map((item, index) => {
 							return (
-								<li className={currentLink === index && "active"} onClick={() => this.setState({currentLink: index})} key={index}>
+								<li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
 									<a href="#" className="side-item">
 										<div className="side-link">{item.icon}</div>
 										<span className="side-title">{item.title}</span>
