@@ -36,7 +36,7 @@ export default class BarChart extends Component {
 					type: "bar",
 					data: [5, 20, 36, 10, 10, 20],
 					// 柱体宽度
-					barWidth: 8,
+					barWidth: 12,
 					// 柱体圆角
 					itemStyle: {
 						normal: {
