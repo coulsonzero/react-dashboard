@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import styled from "styled-components"
 import Sidebar from "@/components/Sidebar"
 import Dashboard from "@/components/Dashboard"
+import Works from "@/components/Works"
 
 export default class App extends Component {
 	constructor(props) {
@@ -21,7 +22,7 @@ export default class App extends Component {
 					/>
 					{/* <Dashboard /> */}
 					{this.state.currentLink === 0 && <Dashboard />}
-					{this.state.currentLink === 1 && <div>page2</div>}
+					{this.state.currentLink === 1 && <Works />}
 					{this.state.currentLink === 2 && <div>page3</div>}
 					{this.state.currentLink === 3 && <div>page4</div>}
 				</div>
