@@ -16,7 +16,6 @@ export default class BarChart extends Component {
 	chartInit() {
 		const myChart = echarts.init(this.barRef.current)
 
-
 		myChart.setOption({
 			title: {
 				text: "ECharts 入门示例",
