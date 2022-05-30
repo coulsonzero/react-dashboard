@@ -1,4 +1,4 @@
-window.onload = function () {
+// window.onload = function () {
 
     // 按钮active切换
     $(function () {
@@ -73,4 +73,4 @@ window.onload = function () {
     toggleButton.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
     });
-};
+// };

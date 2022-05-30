@@ -1,4 +1,4 @@
-window.onload = function () {
+// window.onload = function () {
     // 侧边栏 active功能
     $(function () {
         $(".sidebar-link").click(function () {
@@ -18,7 +18,7 @@ window.onload = function () {
             }
         })
         .resize();
-    
+
     // 自定义的 video 事件
     const allVideos = document.querySelectorAll(".video");
     allVideos.forEach((v) => {
@@ -57,4 +57,4 @@ window.onload = function () {
             $(".video-detail .author-img").attr("src", img);
         });
     });
-}
+// }

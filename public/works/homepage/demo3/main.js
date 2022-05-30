@@ -1,4 +1,4 @@
-window.onload = function () {
+// window.onload = function () {
     $('.mail-choice').change(function () {
         if ($(this).is(":checked")) {
             $(this).parent().addClass('selected-bg');
@@ -18,4 +18,4 @@ window.onload = function () {
         $('.inbox-container').toggleClass('hide');
         $('.mail-detail').toggleClass('hide');
     });
-}
+// }
