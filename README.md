@@ -1,6 +1,18 @@
 # React Dashboard
 
+## 项目技术栈
 
+- 前端框架：React 18.1
+- CSS样式：SCSS、 styled-components
+- 扩展库：ScrollReveal、Echarts5
+- 图标库：react-icons
+- 语法规范：Eslint
+- 别名路径：craco
+
+
+其他可选：
+- 组件库：antd
+- CSS样式: 
 
 ## 新建项目
 
@@ -51,4 +63,12 @@ module.exports = {
 		"start": "craco start",
 		"build": "craco build",
     }
+```
+
+
+## Eslint
+
+```bash
+$ yarn add eslint --dev
+$ yarn create @eslint/config 	# or `npm init @eslint/config`
 ```
