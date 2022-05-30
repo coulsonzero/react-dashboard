@@ -8,8 +8,9 @@ export default class Works extends Component {
         this.state = {
             linkBox: [
                 {title: "", to: "#", src: "https://www.nextjs.cn/static/images/showcase-thumbnails/showcases-16.jpg" },
-                {title: "", to: "./works/homepage/demo1/homePage.html", src: "./images/homepage/1.png"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
+                {title: "", to: "./works/homepage/demo1/index.html", src: "./images/homepage/1.png"},
+                {title: "", to: "./works/homepage/demo2/index.html", src: "./images/homepage/2.png"},
+                {title: "", to: "./works/homepage/demo3/index.html", src: "./images/homepage/3.png"},
                 {title: "", to: "./works/homepage/demo1/homePage.html"},
                 {title: "", to: "./works/homepage/demo1/homePage.html"},
                 {title: "", to: "./works/homepage/demo1/homePage.html"},
