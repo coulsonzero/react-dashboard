@@ -5,7 +5,7 @@ export default class PieChart extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {}
-		this.pieRef = React.createRef()
+		this.pieRef = React.createRef(null)
 		this.chartInit = this.chartInit.bind(this)
 	}
 
@@ -14,7 +14,7 @@ export default class PieChart extends Component {
 	}
 
 	chartInit() {
-		const myChart = echarts.init(this.pieRef.current)
+		let myChart = echarts.init(this.pieRef.current)
 
 		myChart.setOption({
 			// color:['#8C25FF','#0078FF'],
@@ -141,5 +141,9 @@ export default class PieChart extends Component {
 
 	componentDidMount() {
 		this.chartInit()
+	}
+
+	componentWillUnmount() {
+		echarts.dispose(this.pieRef.current)
 	}
 }

@@ -5,7 +5,7 @@ export default class BarChart extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {}
-		this.barRef = React.createRef()
+		this.barRef = React.createRef(null)
 		this.chartInit = this.chartInit.bind(this)
 	}
 
@@ -15,6 +15,7 @@ export default class BarChart extends Component {
 
 	chartInit() {
 		const myChart = echarts.init(this.barRef.current)
+
 
 		myChart.setOption({
 			title: {
@@ -37,5 +38,9 @@ export default class BarChart extends Component {
 
 	componentDidMount() {
 		this.chartInit()
+	}
+
+	componentWillUnmount() {
+		echarts.dispose(this.barRef.current)
 	}
 }
