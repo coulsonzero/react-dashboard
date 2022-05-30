@@ -1,3 +1,24 @@
 {
-    "liveServer.settings.port": 5501
+    "editor.tabSize": 4,
+    // 每次保存的时候自动格式化
+    "editor.formatOnSave": true,
+    //开启自动格式化
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    // "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    // "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    // "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+    // "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    // 每次保存的时候将代码按eslint格式进行修复
+
+    //  #让函数(名)和后面的括号之间加个空格
+    // "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    // 去掉代码结尾的分号
+    "prettier.semi": false,
+    // 使用单引号替代双引号: import React from 'react'
+    "prettier.singleQuote": true,
+    // 在对象，数组括号与文字之间加空格 import React { Components } from "react"
+    "prettier.bracketSpacing": true,
 }

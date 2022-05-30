@@ -1,8 +1,8 @@
-import React, {Component} from "react"
-import styled from "styled-components"
-import Sidebar from "@/components/Sidebar"
-import Dashboard from "@/components/Dashboard"
-import Works from "@/components/Works"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Sidebar from '@/components/Sidebar'
+import Dashboard from '@/components/Dashboard'
+import Works from '@/components/Works'
 
 export default class App extends Component {
 	constructor(props) {
@@ -16,11 +16,7 @@ export default class App extends Component {
 		return (
 			<Div>
 				<div className="app-container">
-					<Sidebar
-						setCurLink={this.setCurLink}
-						currentLink={this.state.currentLink}
-					/>
-					{/* <Dashboard /> */}
+					<Sidebar setCurLink={this.setCurLink} currentLink={this.state.currentLink} />
 					{this.state.currentLink === 0 && <Dashboard />}
 					{this.state.currentLink === 1 && <div>page2</div>}
 					{this.state.currentLink === 2 && <div>page3</div>}
@@ -32,16 +28,16 @@ export default class App extends Component {
 	}
 
 	setCurLink = (v) => {
-		this.setState({currentLink: v})
+		this.setState({ currentLink: v })
 	}
 
 	componentDidMount() {
-		this.setState({currentLink: 0})
+		this.setState({ currentLink: 0 })
 	}
 }
 
 const Div = styled.div`
-	font-family: "DM Sans", sans-serif;
+	font-family: 'DM Sans', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;

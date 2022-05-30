@@ -1,42 +1,42 @@
-import React, {Component} from "react"
+import React from 'react'
 
-import styled from "styled-components"
-import scrollreveal from "scrollreveal"
+import styled from 'styled-components'
+import scrollreveal from 'scrollreveal'
 
-import {MdSpaceDashboard} from "react-icons/md"
-import {AiOutlineDotChart} from "react-icons/ai"
-import {IoSettingsOutline} from "react-icons/io5"
-import {FaAirbnb} from "react-icons/fa"
-import {SiVectorworks} from "react-icons/si"
+import { MdSpaceDashboard } from 'react-icons/md'
+import { AiOutlineDotChart } from 'react-icons/ai'
+import { IoSettingsOutline } from 'react-icons/io5'
+import { FaAirbnb } from 'react-icons/fa'
+import { SiVectorworks } from 'react-icons/si'
 
-export default class Sidebar extends Component {
+export default class Sidebar extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			links: [
-				{icon: MdSpaceDashboard, title: "Dashboard"},
-				{icon: AiOutlineDotChart, title: "Charts"},
-				{icon: FaAirbnb, title: "Analytics"},
-				{icon: SiVectorworks, title: "Works"},
-				{icon: IoSettingsOutline, title: "Settings"},
+				{ icon: MdSpaceDashboard, title: 'Dashboard' },
+				{ icon: AiOutlineDotChart, title: 'Charts' },
+				{ icon: FaAirbnb, title: 'Analytics' },
+				{ icon: SiVectorworks, title: 'Works' },
+				{ icon: IoSettingsOutline, title: 'Settings' },
 			],
 		}
 	}
 
 	render() {
-		const {links} = this.state
-		const {currentLink, setCurLink} = this.props
+		const { links } = this.state
+		const { currentLink, setCurLink } = this.props
 
 		return (
 			<Div>
 				<a className="side-logo">Dashboard</a>
 				<div className="side-wrapper">
 					{/* <div className="side-title">MENU</div> */}
-					<div className="side-menu">
+					<ul className="side-menu">
 						{links.map((item, index) => {
 							return (
 								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
-								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index} >
+								<li className={currentLink === index ? 'active' : undefined} onClick={() => setCurLink(index)} key={index}>
 									<a href={'#' + item.title} className="side-item">
 										<div className="side-link">{<item.icon />}</div>
 										<span className="side-title">{item.title}</span>
@@ -44,7 +44,7 @@ export default class Sidebar extends Component {
 								</li>
 							)
 						})}
-					</div>
+					</ul>
 				</div>
 			</Div>
 		)
@@ -52,8 +52,8 @@ export default class Sidebar extends Component {
 
 	componentDidMount() {
 		const sr = scrollreveal({
-			origin: "bottom",
-			distance: "20px",
+			origin: 'bottom',
+			distance: '20px',
 			duration: 1000,
 			smooth: true,
 			reset: false,
@@ -108,7 +108,7 @@ const Div = styled.div`
 					position: absolute;
 					left: 0;
 					top: 0;
-					content: "";
+					content: '';
 					background: #dc885e;
 					width: 4px;
 					height: 60%;
@@ -123,7 +123,7 @@ const Div = styled.div`
 					position: absolute;
 					left: 0;
 					top: 0;
-					content: "";
+					content: '';
 					/* background: #d1e2e161; */
 					background-color: rgba(43, 61, 95, 0.125);
 					width: 0%;
@@ -140,7 +140,7 @@ const Div = styled.div`
 					transform: translateY(12px) scaleY(1);
 					box-shadow: rgba(43, 61, 95, 0.125);
 					background-color: #2b3d5f;
-					transition-delay: .3s;
+					transition-delay: 0.3s;
 				}
 				.side-item {
 					display: flex;
@@ -150,7 +150,7 @@ const Div = styled.div`
 					.side-link {
 						margin-right: 16px;
 						display: flex;
-						opacity: .5;
+						opacity: 0.5;
 						font-size: 1.2rem;
 					}
 					.side-title {
