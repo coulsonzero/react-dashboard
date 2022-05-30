@@ -6,32 +6,30 @@ export default class Works extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            linkBox: [
-                {title: "", to: "#", src: "https://www.nextjs.cn/static/images/showcase-thumbnails/showcases-16.jpg" },
-                {title: "", to: "./works/homepage/demo1/index.html", src: "./images/homepage/1.png"},
-                {title: "", to: "./works/homepage/demo2/index.html", src: "./images/homepage/2.png"},
-                {title: "", to: "./works/homepage/demo3/index.html", src: "./images/homepage/3.png"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-                {title: "", to: "./works/homepage/demo1/homePage.html"},
-            ]
-        }
+					linkBox: [
+						{title: "", to: "#", src: "https://www.nextjs.cn/static/images/showcase-thumbnails/showcases-16.jpg"},
+						{title: "", to: "http://www.coulsonzero.cn", src: "./images/website/1.png"},
+						{title: "", to: "http://docs.coulsonzero.top", src: "./images/website/2.png"},
+						{title: "", to: "./works/homepage/demo1/index.html", src: "./images/homepage/1.png"},
+						{title: "", to: "./works/homepage/demo2/index.html", src: "./images/homepage/2.png"},
+						{title: "", to: "./works/homepage/demo3/index.html", src: "./images/homepage/3.png"},
+						{title: "", to: "./works/homepage/demo4/index.html", src: "./images/homepage/4.png"},
+						{title: "", to: "./works/homepage/demo5/index.html", src: "./images/homepage/5.png"},
+						{title: "", to: "./works/homepage/demo6/index.html", src: "./images/homepage/6.png"},
+						{title: "", to: "./works/homepage/demo7/index.html", src: "./images/homepage/7.png"},
+						{title: "", to: "./works/nav/demo1/index.html", src: "./images/nav/1.png"},
+						{title: "", to: "./works/swipper/demo1/index.html", src: "./images/swipper/1.png"},
+						{title: "", to: "./works/section/demo1/index.html", src: "./images/section/1.png"},
+					],
+				}
     }
 
 	render() {
 		return (
 			<WorksStyle>
                 <div className="section-title">Works Display</div>
-				{/* <Linker title="" to="./works/homepage/demo1/homePage.html" src="https://www.nextjs.cn/static/images/showcase-thumbnails/showcases-16.jpg" />
-				<Linker title="" to="./works/homepage/demo1/homePage.html" /> */}
                 <div className="link-wrapper">
-                    {this.state.linkBox.map((item, index) => <Linker title={item.title.length > 0 ? item.title : `链接 ${index + 1}`} to={item.to} src={item.src} key={index}/>)}
+                    {this.state.linkBox.map((item, index) => <Linker title={item.title.length > 0 ? item.title : `${index + 1}`} to={item.to} src={item.src} key={index}/>)}
                 </div>
 
 			</WorksStyle>
