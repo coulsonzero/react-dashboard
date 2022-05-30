@@ -18,12 +18,13 @@ export default class Sidebar extends Component {
 				{icon: <FaAirbnb />, title: "Analytics"},
 				{icon: <IoSettingsOutline />, title: "Settings"},
 			],
-			currentLink: 0,
 		}
 	}
 
 	render() {
-		const {icons, currentLink} = this.state
+		const {icons} = this.state
+		const {currentLink, setCurLink} = this.props
+
 		return (
 			<Div>
 				<a className="side-logo">Dashboard</a>
@@ -32,7 +33,8 @@ export default class Sidebar extends Component {
 					<div className="side-menu">
 						{icons.map((item, index) => {
 							return (
-								<li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
+								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
+								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index}>
 									<a href="#" className="side-item">
 										<div className="side-link">{item.icon}</div>
 										<span className="side-title">{item.title}</span>
@@ -85,6 +87,7 @@ const Div = styled.div`
 		font-weight: 600;
 		font-size: 1.4rem;
 		margin-bottom: 40px;
+		text-align: center;
 	}
 	.side-wrapper {
 		border-bottom: 1px solid rgba(128, 129, 145, 0.24);
@@ -126,6 +129,7 @@ const Div = styled.div`
 					height: 60%;
 					transform: translateY(12px);
 					transition: width 0.5s ease-in-out;
+					z-index: -1;
 				}
 				&:hover::after {
 					width: 86%;

@@ -4,15 +4,33 @@ import Sidebar from "@/components/Sidebar"
 import Dashboard from "@/components/Dashboard"
 
 export default class App extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			currentLink: 0,
+		}
+	}
+
 	render() {
 		return (
 			<Div>
 				<div className="app-container">
-					<Sidebar />
-					<Dashboard className="hidden" />
+					<Sidebar
+						setCurLink={this.setCurLink}
+						currentLink={this.state.currentLink}
+					/>
+					{/* <Dashboard /> */}
+					{this.state.currentLink === 0 && <Dashboard />}
+					{this.state.currentLink === 1 && <div>page2</div>}
+					{this.state.currentLink === 2 && <div>page3</div>}
+					{this.state.currentLink === 3 && <div>page4</div>}
 				</div>
 			</Div>
 		)
+	}
+
+	setCurLink = (v) => {
+		this.setState({currentLink: v})
 	}
 }
 
@@ -41,8 +59,5 @@ const Div = styled.div`
 		box-shadow: 0 0 0 10px rgb(255 255 255 / 40%);
 		display: flex;
 		overflow: hidden;
-	}
-	.hidden {
-		display: hidden;
 	}
 `
