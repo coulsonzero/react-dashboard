@@ -7,6 +7,7 @@ import {MdSpaceDashboard} from "react-icons/md"
 import {AiOutlineDotChart} from "react-icons/ai"
 import {IoSettingsOutline} from "react-icons/io5"
 import {FaAirbnb} from "react-icons/fa"
+import {SiVectorworks} from "react-icons/si"
 
 export default class Sidebar extends Component {
 	constructor(props) {
@@ -16,6 +17,7 @@ export default class Sidebar extends Component {
 				{icon: <MdSpaceDashboard />, title: "Dashboard"},
 				{icon: <AiOutlineDotChart />, title: "Charts"},
 				{icon: <FaAirbnb />, title: "Analytics"},
+				{icon: <SiVectorworks />, title: "Works"},
 				{icon: <IoSettingsOutline />, title: "Settings"},
 			],
 		}
@@ -29,12 +31,12 @@ export default class Sidebar extends Component {
 			<Div>
 				<a className="side-logo">Dashboard</a>
 				<div className="side-wrapper">
-					<div className="side-title">MENU</div>
+					{/* <div className="side-title">MENU</div> */}
 					<div className="side-menu">
 						{icons.map((item, index) => {
 							return (
 								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
-								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index}>
+								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index} >
 									<a href="#" className="side-item">
 										<div className="side-link">{item.icon}</div>
 										<span className="side-title">{item.title}</span>
@@ -49,10 +51,9 @@ export default class Sidebar extends Component {
 	}
 
 	componentDidMount() {
-		/*
 		const sr = scrollreveal({
-			origin: "left",
-			distance: "80px",
+			origin: "bottom",
+			distance: "20px",
 			duration: 1000,
 			smooth: true,
 			reset: false,
@@ -62,14 +63,13 @@ export default class Sidebar extends Component {
 			`
             	.side-logo,
 				.side-title,
-				.side-wrapper .side-menu li
+				.side-wrapper .side-menu
       		`,
 			{
 				opacity: 0,
-				interval: 300,
+				interval: 200,
 			}
 		)
-		*/
 	}
 }
 
@@ -124,7 +124,8 @@ const Div = styled.div`
 					left: 0;
 					top: 0;
 					content: "";
-					background: #d1e2e161;
+					/* background: #d1e2e161; */
+					background-color: rgba(43, 61, 95, 0.125);
 					width: 0%;
 					height: 60%;
 					transform: translateY(12px);
@@ -134,6 +135,13 @@ const Div = styled.div`
 				&:hover::after {
 					width: 86%;
 				}
+				&:hover::before {
+					height: 60%;
+					transform: translateY(12px) scaleY(1);
+					box-shadow: rgba(43, 61, 95, 0.125);
+					background-color: #2b3d5f;
+					transition-delay: .3s;
+				}
 				.side-item {
 					display: flex;
 					align-items: center;
@@ -142,13 +150,17 @@ const Div = styled.div`
 					.side-link {
 						margin-right: 16px;
 						display: flex;
+						opacity: .5;
+						font-size: 1.2rem;
 					}
 					.side-title {
 						color: rgba(51, 51, 51, 0.7);
 					}
 				}
+				&.active .side-link,
 				&:hover .side-link {
-					color: #ca824e;
+					/* color: #ca824e; */
+					opacity: 1;
 				}
 				&.active .side-title,
 				&:hover .side-title {

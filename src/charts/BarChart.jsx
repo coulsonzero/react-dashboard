@@ -19,10 +19,15 @@ export default class BarChart extends Component {
 		myChart.setOption({
 			title: {
 				text: "ECharts 入门示例",
+				show: false,
 			},
 			tooltip: {},
 			xAxis: {
 				data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+				// 隐藏刻度线
+				axisTick: {
+					show: false,
+				},
 			},
 			yAxis: {},
 			series: [
@@ -30,6 +35,15 @@ export default class BarChart extends Component {
 					name: "销量",
 					type: "bar",
 					data: [5, 20, 36, 10, 10, 20],
+					// 柱体宽度
+					barWidth: 8,
+					// 柱体圆角
+					itemStyle: {
+						normal: {
+							color: "#99e0f7",
+							barBorderRadius: [8, 8, 0, 0],
+						},
+					},
 				},
 			],
 		})

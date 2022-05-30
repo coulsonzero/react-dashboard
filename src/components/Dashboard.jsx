@@ -1,7 +1,11 @@
 import React, {Component} from "react"
 import styled from "styled-components"
-import BarChart from "@/container/BarChart"
-import PieChart from "@/container/PieChart"
+import BarChart from "@/charts/BarChart"
+import RadarChart from "@/charts/RadarChart"
+import LineChart from "@/charts/LineChart"
+import PieChart from "@/charts/PieChart"
+import GuageChart from "@/charts/GuageChart"
+import PicBar from "@/charts/PicBar"
 import Tableview from "@/container/Tableview"
 
 
@@ -17,9 +21,11 @@ export default class Dashboard extends Component {
 					<div className="section-title">Dashboard</div>
                     <div className="chart-container">
                         <div className="chartBox"><BarChart /></div>
-                        <div className="chartBox"><PieChart /></div>
-                        <div className="chartBox"><BarChart /></div>
-                        <div className="chartBox"><BarChart /></div>
+                        <div className="chartBox"><RadarChart /></div>
+                        <div className="chartBox"><LineChart /></div>
+						<div className="chartBox"><PieChart /></div>
+                        <div className="chartBox"><GuageChart /></div>
+                        <div className="chartBox"><PicBar /></div>
                     </div>
                     <div className="table-container">
                         <Tableview/>
@@ -55,7 +61,8 @@ const DashboardStyle = styled.section`
 				height: 220px;
 				border-radius: 12px;
 				background-color: #ffffff;
-				padding: 10px;
+				/* padding: 10px; */
+				overflow: hidden;
 				.chart {
 					width: 100%;
 					height: 100%;

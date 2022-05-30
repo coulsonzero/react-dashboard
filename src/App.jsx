@@ -22,9 +22,10 @@ export default class App extends Component {
 					/>
 					{/* <Dashboard /> */}
 					{this.state.currentLink === 0 && <Dashboard />}
-					{this.state.currentLink === 1 && <Works />}
+					{this.state.currentLink === 1 && <div>page2</div>}
 					{this.state.currentLink === 2 && <div>page3</div>}
-					{this.state.currentLink === 3 && <div>page4</div>}
+					{this.state.currentLink === 3 && <Works />}
+					{this.state.currentLink === 4 && <div>page5</div>}
 				</div>
 			</Div>
 		)
@@ -32,6 +33,10 @@ export default class App extends Component {
 
 	setCurLink = (v) => {
 		this.setState({currentLink: v})
+	}
+
+	componentDidMount() {
+		this.setState({currentLink: 0})
 	}
 }
 
