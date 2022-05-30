@@ -37,7 +37,7 @@ export default class Sidebar extends Component {
 							return (
 								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
 								<li className={currentLink === index ? "active" : undefined} onClick={() => setCurLink(index)} key={index} >
-									<a href="#" className="side-item">
+									<a href={'#' + item.title} className="side-item">
 										<div className="side-link">{item.icon}</div>
 										<span className="side-title">{item.title}</span>
 									</a>

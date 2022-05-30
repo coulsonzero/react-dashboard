@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React from "react"
 import styled from "styled-components"
 
 const LinkStyle = styled.a`
@@ -74,7 +74,7 @@ export default function Linker({ to, title, src, open }) {
 	return (
 		<LinkStyle href={to} target={open ? "_self" : "_blank"}>
 			<div className="link-container">
-				<img className={src ? "link-img" : "link-img default-bg"} src={src ? src : undefined} />
+				<img className={src ? "link-img" : "link-img default-bg"} src={src ? src : undefined} alt={title}/>
 				<div className="shadow">
 					<div className="info">
 						<div className="link-title">{title}</div>
