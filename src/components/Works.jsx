@@ -20,26 +20,38 @@ export default class Works extends Component {
 				{ title: '', to: './works/homepage/demo6/index.html', src: './images/homepage/6.png' },
 				{ title: '', to: './works/homepage/demo7/index.html', src: './images/homepage/7.png' },
 				{ title: 'nav', to: './works/nav/demo1/index.html', src: './images/nav/1.png' },
-				{ title: 'nav', to: './works/nav/demo2/index.html', src: './images/nav/2.png' },
+				{ title: 'nav', to: './works/nav/demo2/index.html', src: './images/nav/2.gif' },
 				{ title: 'nav', to: './works/nav/demo3/index.html', src: './images/nav/3.png' },
 				{ title: 'nav', to: './works/nav/demo4/index.html', src: './images/nav/4.png' },
 				{ title: 'nav', to: './works/nav/demo5/index.html', src: './images/nav/5.png' },
-				{ title: 'swipper', to: './works/swipper/demo1/index.html', src: './images/swipper/1.png' },
-				{ title: 'section', to: './works/section/demo1/index.html', src: './images/section/1.png' },
+				{ title: 'swipper', to: './works/swipper/demo1/index.html', src: './images/swipper/1.gif', type: 'other' },
+				{ title: 'section', to: './works/section/demo1/index.html', src: './images/section/1.png', type: 'other' },
 				{ title: 'login', to: './works/login/demo1/index.html', src: './images/login/1.png' },
 				{ title: 'login', to: './works/login/demo2/index.html', src: './images/login/2.png' },
 				{ title: 'input', to: './works/input/demo1/index.html', src: './images/input/1.png' },
 				{ title: 'input', to: './works/input/demo2/index.html', src: './images/input/2.png' },
 				{ title: 'input', to: './works/input/demo3/index.html', src: './images/input/3.gif' },
 				{ title: 'input', to: './works/input/demo4/index.html', src: './images/input/4.png' },
-
+				{ title: 'FAQ', to: './works/other/FAQ/index.html', src: './images/other/faq.png' },
+				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/other/passwordGenerator.png' },
+				{ title: 'passwordGenerator', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
+				{ title: 'comboBox', to: './works/input/comboBox/index.html', src: "./images/input/5.gif" },
+				{ title: 'button', to: './works/input/button/demo1/index.html', src: "./images/button/1.png" },
+				{ title: 'button', to: './works/input/button/demo2/index.html', src: "./images/button/2.gif" },
+				{ title: 'button', to: './works/input/button/demo3/index.html', src: "./images/button/3.png" },
+				{ title: 'button', to: './works/input/button/demo4/index.html', src: "./images/button/4.gif" },
+				{ title: '3D', to: './works/3d/demo1/index.html', src: './images/3d/1.gif' },
+				{ title: '3D', to: './works/3d/demo2/index.html', src: './images/3d/2.gif' },
+				{ title: '3D', to: './works/3d/demo3/index.html', src: './images/3d/3.png' },
+				{ title: '3D', to: './works/3d/demo4/index.html', src: './images/3d/4.png' },
+				{ title: '3D', to: './works/3d/demo5/index.html', src: './images/3d/5.png' },
 			],
 			// 当前筛选数据
 			links: [],
 			// btn-active
 			cur_btn: '0',
 			// buts
-			btn_filter: ['All', 'Homepage', 'Nav'],
+			btn_filter: ['All', 'Homepage', 'Nav', 'Input', 'Button', '3D', 'Other'],
 		}
 	}
 
@@ -49,7 +61,7 @@ export default class Works extends Component {
 		return (
 			<WorksStyle>
 				<div className="section-title">Works Display</div>
-				<div className="link-tab">
+				<div className="link-tab fixed">
 					{btn_filter.map((item, index) => {
 						return (
 							<button id={index} className={cur_btn == index ? 'link-btn active' : 'link-btn'} onClick={this.handleClick} key={index}>
@@ -94,7 +106,7 @@ export default class Works extends Component {
 	filterData = (e) => {
 		const { linkBox } = this.state
 		const target = e.target.innerHTML.toLowerCase()
-		const data = linkBox.filter((item, index) => item.to.includes(target)).map((item) => item)
+		const data = linkBox.filter((item, index) => item.to.includes(target) || (item.type && item.type.includes(target))).map((item) => item)
 		this.setState({ links: data.length === 0 ? linkBox : data })
 	}
 
@@ -160,5 +172,13 @@ const WorksStyle = styled.section`
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		place-items: center;
+	}
+	.fixed {
+		position: sticky;
+		top: 20px;
+		background: #fff;
+		z-index: 10;
+		padding: 15px 30px 10px 30px;
+		border-radius: 30px;
 	}
 `

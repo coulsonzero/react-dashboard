@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Barlow", sans-serif;
+  color: white;
+  background: #1c1c21;
+  font-size: 14px;
+}
+
+pre {
+  color: #868698;
+  font-size: 13px;
+}
+
+.base {
+  height: 144px;
+  width: 144px;
+  position: relative;
+  animation: base 1s ease-in-out 5s both;
+  transform-style: preserve-3d;
+}
+.base > *, .base::after {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.base::after {
+  content: "";
+  transform: translateZ(-36px);
+  background: #151519;
+  box-shadow: 0px 0px 18px #151519;
+  animation: fadeIn 1.5s ease-in-out 17.5s both;
+  z-index: -1;
+}
+
+.base, .side, .top {
+  transform-style: preserve-3d;
+}
+.base::before, .side::before, .top::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: 1px solid currentcolor;
+  background: rgba(255, 255, 255, 0.125);
+}
+
+.side::before {
+  transform-origin: top;
+  animation: side 7.5s ease-in-out 11s both;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.side::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: top;
+  transform: rotateX(90deg);
+  z-index: 1;
+}
+.side:nth-child(1)::after, .side:nth-child(4)::after {
+  animation: solidify 1.5s ease-in-out 17.5s both;
+}
+.side:nth-child(1)::after {
+  color: #868698;
+}
+.side:nth-child(4)::after {
+  color: #3d3d48;
+}
+
+.side:nth-child(0) {
+  transform: rotateZ(0deg);
+}
+
+.side:nth-child(1) {
+  transform: rotateZ(90deg);
+}
+
+.side:nth-child(2) {
+  transform: rotateZ(180deg);
+}
+
+.side:nth-child(3) {
+  transform: rotateZ(270deg);
+}
+
+.top {
+  transform: translateZ(144px);
+}
+.top::before {
+  animation: top 7.5s ease-in-out 11s both;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.top::after {
+  animation: solidify 1.5s ease-in-out 17.5s both;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: top;
+  z-index: 1;
+}
+
+.annotation {
+  position: absolute;
+  height: 144px;
+  width: 144px;
+  display: flex;
+}
+
+.dim {
+  position: absolute;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  top: 100%;
+}
+.dim::before {
+  content: "";
+  flex: 0 0 100%;
+  height: 6px;
+  margin-top: 12px;
+  border: 1px solid currentcolor;
+  border-radius: 0 0 2px 2px;
+  border-top: none;
+}
+.dim::after {
+  content: "144px";
+  margin-top: 4px;
+}
+.dim.original {
+  animation: fadeInOut 4s ease-in-out 1s both;
+}
+.dim.horizontal {
+  transform-origin: top left;
+  transform: translate(50%, 0) rotateZ(-30deg) skew(30deg) scaleY(0.866);
+  animation: fadeInOut 4s ease-in-out 7s both;
+}
+.dim.vertical {
+  transform-origin: top left;
+  transform: translate(136.6%, -72px) rotateZ(-90deg);
+  animation: fadeInOut 4s ease-in-out 13s both;
+}
+
+.angle {
+  position: absolute;
+  text-align: center;
+  width: 80px;
+  bottom: 0;
+  right: 50%;
+  margin-right: 1.5em;
+  padding-bottom: 0.33em;
+  border-bottom: 1px solid currentcolor;
+  animation: fadeInOut 4s ease-in-out 7s both;
+}
+
+.transform {
+  position: absolute;
+  bottom: 18px;
+  animation: fadeInOut 13s ease-in-out 4.5s both;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  position: absolute;
+  bottom: 18px;
+  animation: fadeIn 1.5s ease-in-out 17.5s both;
+}
+.links a {
+  all: unset;
+  display: block;
+  padding: 0.5em;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: all 0.1s ease-in-out;
+}
+.links a:hover {
+  opacity: 0.6;
+}
+
+@keyframes base {
+  100% {
+    transform: rotateX(54.736deg) rotateZ(-45deg) scale3D(1.2247, 1.2247, 1.2247);
+  }
+}
+@keyframes side {
+  0% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+  20% {
+    transform: rotateX(90deg);
+    opacity: 1;
+  }
+  90% {
+    transform: rotateX(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+@keyframes top {
+  0% {
+    transform: translateZ(144px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 0;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes solidify {
+  100% {
+    background-color: currentcolor;
+  }
+}
