@@ -28,6 +28,11 @@ export default class Works extends Component {
 				{ title: 'section', to: './works/section/demo1/index.html', src: './images/section/1.png' },
 				{ title: 'login', to: './works/login/demo1/index.html', src: './images/login/1.png' },
 				{ title: 'login', to: './works/login/demo2/index.html', src: './images/login/2.png' },
+				{ title: 'input', to: './works/input/demo1/index.html', src: './images/input/1.png' },
+				{ title: 'input', to: './works/input/demo2/index.html', src: './images/input/2.png' },
+				{ title: 'input', to: './works/input/demo3/index.html', src: './images/input/3.gif' },
+				{ title: 'input', to: './works/input/demo4/index.html', src: './images/input/4.png' },
+
 			],
 			// 当前筛选数据
 			links: [],
