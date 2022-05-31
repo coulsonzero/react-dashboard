@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import scrollreveal from 'scrollreveal'
 
 import { MdSpaceDashboard } from 'react-icons/md'
-import { AiOutlineDotChart } from 'react-icons/ai'
+import { AiOutlineDotChart, AiOutlineAntDesign } from 'react-icons/ai'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { FaAirbnb } from 'react-icons/fa'
 import { SiVectorworks } from 'react-icons/si'
@@ -18,6 +18,7 @@ export default class Sidebar extends React.Component {
 				{ icon: AiOutlineDotChart, title: 'Charts' },
 				{ icon: FaAirbnb, title: 'Analytics' },
 				{ icon: SiVectorworks, title: 'Works' },
+				{ icon: AiOutlineAntDesign, title: 'Ant Design' },
 				{ icon: IoSettingsOutline, title: 'Settings' },
 			],
 		}

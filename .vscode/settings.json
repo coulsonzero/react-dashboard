@@ -1,7 +1,7 @@
 {
     "editor.tabSize": 4,
     // 每次保存的时候自动格式化
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     //开启自动格式化
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {

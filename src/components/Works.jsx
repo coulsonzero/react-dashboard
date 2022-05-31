@@ -120,14 +120,8 @@ export default class Works extends Component {
 }
 
 const WorksStyle = styled.section`
-	overflow: scroll;
-	.section-title {
-		text-align: center;
-		padding: 40px 20px;
-		font-size: 1.5rem;
-		font-weight: 700;
-		cursor: default;
-	}
+	overflow-y: scroll;
+
 	.link-tab {
 		display: flex;
 		justify-content: space-between;
@@ -178,11 +172,11 @@ const WorksStyle = styled.section`
 		position: sticky;
 		top: 20px;
 		background: rgba(255, 255, 255, 0.7);
-		backdrop-fit: blur(20px);
+		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: saturate(180%) blur(20px);
 		box-shadow: 4px 4px 6px rgba(32, 32, 32, 0.1);
 		z-index: 10;
-		padding: 15px 30px 10px 30px;
+		padding: 10px 30px 6px 30px;
 		border-radius: 30px;
 	}
 `
