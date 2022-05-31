@@ -176,7 +176,10 @@ const WorksStyle = styled.section`
 	.fixed {
 		position: sticky;
 		top: 20px;
-		background: #fff;
+		background: rgba(255, 255, 255, 0.7);
+		backdrop-fit: blur(20px);
+		-webkit-backdrop-filter: saturate(180%) blur(20px);
+		box-shadow: 4px 4px 6px rgba(32, 32, 32, 0.1);
 		z-index: 10;
 		padding: 15px 30px 10px 30px;
 		border-radius: 30px;
