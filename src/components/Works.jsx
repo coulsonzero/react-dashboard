@@ -34,6 +34,11 @@ export default class Works extends Component {
 		return (
 			<WorksStyle>
 				<div className="section-title">Works Display</div>
+				<div className="link-tab">
+					<button className="link-btn" id="btn-1" onClick={this.handleClick}>All</button>
+					<button className="link-btn" id="btn-2" onClick={this.handleClick}>Homapage</button>
+					<button className="link-btn" id="btn-3" onClick={this.handleClick}>Nav</button>
+				</div>
 				<div className="link-wrapper">
 					{this.state.linkBox.map((item, index) => (
 						<Linker title={item.title.length > 0 ? item.title : `${index + 1}`} to={item.to} src={item.src} key={index} />
@@ -41,6 +46,11 @@ export default class Works extends Component {
 				</div>
 			</WorksStyle>
 		)
+	}
+
+	handleClick = (e) => {
+		console.log(e.target.id.slice(-1))
+		
 	}
 }
 
@@ -51,6 +61,29 @@ const WorksStyle = styled.section`
 		padding: 40px 20px;
 		font-size: 1.5rem;
 		font-weight: 700;
+	}
+	.link-tab {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 10px auto 30px;
+		max-width: fit-content;
+		/* text-align: center; */
+		.link-btn {
+			font-size: 1rem;
+			padding: 10px 1.25rem;
+			/* color: rgb(105, 105, 105); */
+			color: rgba(156,163,175, 1);
+			background: transparent;
+			cursor: pointer;
+			outline: none;
+			border-bottom: 2px solid transparent;
+			&.active,
+			&:hover {
+				color: rgb(0,0,0);
+				border-bottom-color: #37b067;
+			}
+		}
 	}
 	.link-wrapper {
 		display: grid;

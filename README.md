@@ -11,8 +11,8 @@
 
 
 其他可选：
-- 组件库：antd
-- CSS样式: 
+- 组件库：Ant Design
+- CSS样式: Tailwind
 
 ## 新建项目
 

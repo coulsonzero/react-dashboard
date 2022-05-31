@@ -15,7 +15,7 @@
         "react"
     ],
     "rules": {
-        // 禁止末尾分号
+        // 禁止末尾分号, 生产环境需关闭
         // "comma-dangle": ["error","never"],
         // 强制空格： { Components }
         // "array-bracket-spacing": ["error","always"],
