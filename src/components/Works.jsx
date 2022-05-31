@@ -126,6 +126,7 @@ const WorksStyle = styled.section`
 		padding: 40px 20px;
 		font-size: 1.5rem;
 		font-weight: 700;
+		cursor: default;
 	}
 	.link-tab {
 		display: flex;

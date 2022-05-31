@@ -5,6 +5,9 @@
     transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
     border: none;
     outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 html {

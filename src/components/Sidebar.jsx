@@ -88,6 +88,7 @@ const Div = styled.div`
 		font-size: 1.4rem;
 		margin-bottom: 40px;
 		text-align: center;
+		cursor: default;
 	}
 	.side-wrapper {
 		border-bottom: 1px solid rgba(128, 129, 145, 0.24);
