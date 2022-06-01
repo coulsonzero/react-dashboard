@@ -11,14 +11,28 @@ export default class AntdCard extends Component {
 		return (
 			<AntdStyle className="section-wrapper">
 				<div className="section-title">AntdCard</div>
-        <SearchCard />
-				<Login />
-        <FormJson />
-				<CommentCard />
-				<SwipperCard />
+				<div className="section-card">
+					<SearchCard />
+				</div>
+				<div className="section-card">
+					<Login />
+				</div>
+				<div className="section-card">
+					<FormJson />
+				</div>
+					<CommentCard />
+					<SwipperCard />
 			</AntdStyle>
 		)
 	}
 }
 
-const AntdStyle = styled.section``
+const AntdStyle = styled.section`
+	.section-card {
+		display: grid;
+    	place-items: center;
+		margin-bottom: 30px;
+		padding: 20px;
+		border: 1px solid #323232;
+	}
+`
