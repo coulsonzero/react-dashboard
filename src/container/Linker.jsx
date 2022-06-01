@@ -8,17 +8,17 @@ const LinkStyle = styled.a`
 	margin: 10px;
 	width: 300px;
 	height: 180px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 7px;
+	box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px 0px, rgb(0 0 0 / 2%) 0px 0px 0px 1px;
+	overflow: hidden;
+	cursor: zoom-in;
 	.link-container {
 		position: relative;
 		/* width: 416px; */
 		/* height: 220px; */
 		width: 100%;
 		height: 100%;
-		background-color: rgb(255, 255, 255);
-		border-radius: 7px;
-		box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px 0px, rgb(0 0 0 / 2%) 0px 0px 0px 1px;
-		overflow: hidden;
-		cursor: zoom-in;
 		.shadow {
 			position: absolute;
 			top: 0;
