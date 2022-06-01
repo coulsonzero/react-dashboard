@@ -48,10 +48,8 @@ export default class Dashboard extends Component {
 }
 
 const DashboardStyle = styled.section`
-
 	.main-container {
 		.chart-container {
-			padding: 20px;
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 			place-items: center;
@@ -71,7 +69,7 @@ const DashboardStyle = styled.section`
 			}
 		}
 		.table-container {
-			padding: 40px 20px;
+			padding: 40px 0;
 		}
 	}
 `

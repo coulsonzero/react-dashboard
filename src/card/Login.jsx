@@ -87,12 +87,13 @@ export default function Login() {
 					rules={[
 						{
 							required: true,
-							message: 'Please input your password!',
+							message: '请输入您的密码!',
 						},
 						{
 							type: 'string',
 							min: 6,
 							warningOnly: true,
+							message: "请至少输入6位字符"
 						},
 					]}>
 					<Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Password" allowClear />
