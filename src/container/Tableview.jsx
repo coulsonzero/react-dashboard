@@ -16,14 +16,20 @@ export default class Tableview extends Component {
 				{ name: 'Aoausapq.png', file_size: '820 KB', update_time: '2022-05-31', action: <FiMoreHorizontal />, file_type: 'png' },
 				{ name: 'Aoausapq.png', file_size: '820 KB', update_time: '2022-05-31', action: <FiMoreHorizontal />, file_type: 'png' },
 			],
+			columns: [
+				{ title: 'Name', dataIndex: 'name' },
+				{ title: 'Size', dataIndex: 'size' },
+				{ title: 'Last Modified', dataIndex: 'last_modified' },
+				{ title: 'Action', dataIndex: 'action' },
+			],
 		}
 	}
 	render() {
-		const { tableData } = this.state
+		const { tableData, columns } = this.state
 
-		const list = tableData.map((item, index) => {
+		const tableDataRow = tableData.map((item, index) => {
 			return (
-				<div className="files-table-row" key={index}>
+				<div className="table-row" key={index}>
 					<div className={'table-cell name-cell ' + item.file_type}>{item.name}</div>
 					<div className="table-cell">{item.file_size}</div>
 					<div className="table-cell">{item.update_time}</div>
@@ -33,16 +39,15 @@ export default class Tableview extends Component {
 				</div>
 			)
 		})
+
+		const tableColumns = columns.map((item, index) => {
+			return <div className="column-header table-cell" key={index}>{item.title}</div>
+		})
 		return (
 			<DIV>
-				<div className="files-table">
-					<div className="files-table-header">
-						<div className="column-header table-cell">Name</div>
-						<div className="column-header table-cell size-cell">Size</div>
-						<div className="column-header table-cell">Last Modified</div>
-						<div className="column-header table-cell">Action</div>
-					</div>
-					{list}
+				<div className="custom-table">
+					<div className="table-header">{tableColumns}</div>
+					{tableDataRow}
 				</div>
 			</DIV>
 		)
@@ -51,7 +56,7 @@ export default class Tableview extends Component {
 
 const DIV = styled.div`
 	/* max-width: 50%; */
-	.files-table {
+	.custom-table {
 		background-color: #fff;
 		box-shadow: 0 2px 6px 0 rgb(136 148 171 / 20%), 0 24px 20px -24px rgb(71 82 107 / 10%);
 		border-radius: 12px;
@@ -66,7 +71,7 @@ const DIV = styled.div`
 			color: #000;
 			padding: 8px;
 		}
-		.files-table-header {
+		.table-header {
 			display: table-header-group;
 			.column-header {
 				font-size: 12px;
@@ -77,7 +82,7 @@ const DIV = styled.div`
 				width: 20%;
 			}
 		}
-		.files-table-row {
+		.table-row {
 			display: table-row-group;
 			.name-cell {
 				width: 40%;
