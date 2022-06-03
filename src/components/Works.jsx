@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { flushSync } from 'react-dom'
 import styled from 'styled-components'
 import Linker from '@/container/Linker'
-import { flushSync } from 'react-dom'
+import { gif1, gif2, gif3, gif4, gif5, gif6, img7, img8, gif9 } from '../assets/canvas'
 
 export default class Works extends Component {
 	constructor(props) {
@@ -35,23 +36,32 @@ export default class Works extends Component {
 				{ title: 'FAQ', to: './works/other/FAQ/index.html', src: './images/other/faq.png' },
 				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/other/passwordGenerator.png' },
 				{ title: 'passwordGenerator', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
-				{ title: 'comboBox', to: './works/input/comboBox/index.html', src: "./images/input/5.gif" },
-				{ title: 'button', to: './works/button/demo1/index.html', src: "./images/button/1.png" },
-				{ title: 'button', to: './works/button/demo2/index.html', src: "./images/button/2.gif" },
-				{ title: 'button', to: './works/button/demo3/index.html', src: "./images/button/3.png" },
-				{ title: 'button', to: './works/button/demo4/index.html', src: "./images/button/4.gif" },
+				{ title: 'comboBox', to: './works/input/comboBox/index.html', src: './images/input/5.gif' },
+				{ title: 'button', to: './works/button/demo1/index.html', src: './images/button/1.png' },
+				{ title: 'button', to: './works/button/demo2/index.html', src: './images/button/2.gif' },
+				{ title: 'button', to: './works/button/demo3/index.html', src: './images/button/3.png' },
+				{ title: 'button', to: './works/button/demo4/index.html', src: './images/button/4.gif' },
 				{ title: '3D', to: './works/3d/demo1/index.html', src: './images/3d/1.gif' },
 				{ title: '3D', to: './works/3d/demo2/index.html', src: './images/3d/2.gif' },
-				{ title: '3D', to: './works/3d/demo3/index.html', src: './images/3d/3.png' },
+				{ title: '3D', to: './works/3d/demo3/index.html', src: './images/3d/3.gif' },
 				{ title: '3D', to: './works/3d/demo4/index.html', src: './images/3d/4.png' },
 				{ title: '3D', to: './works/3d/demo5/index.html', src: './images/3d/5.png' },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/Canvas3D/canvas3D.html', src: gif1 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/Canvas3DBody/canvas3DBody.html', src: gif2 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/CanvasGlobe/canvasGlobe.html', src: gif3 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/CanvasReact/canvasReact.html', src: gif4 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/CanvasSololearn/canvasSololearn.html', src: gif5 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/CanvasWave/canvasWave.html', src: gif6 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/GameCanvas/gameCanvas.html', src: img7 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/Learning/index.html', src: img8 },
+				{ title: 'Canvas', to: 'http://www.coulsonzero.cn/canvas-learning/TextAnimate/textAnimate.html', src: gif9 },
 			],
 			// 当前筛选数据
 			links: [],
 			// btn-active
 			cur_btn: '0',
 			// buts
-			btn_filter: ['All', 'Homepage', 'Nav', 'Input', 'Button', '3D', 'Other'],
+			btn_filter: ['All', 'Homepage', 'Nav', 'Input', 'Button', '3D', 'Canvas', 'Other'],
 		}
 	}
 
