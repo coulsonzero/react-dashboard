@@ -84,6 +84,7 @@ const Div = styled.div`
 	flex-direction: column;
 	// flex-shrink: 0;
 	transition-duration: 0.2s;
+	border-radius: var(--app-container-radius) 0 0 var(--app-container-radius);
 	.side-logo {
 		font-weight: 600;
 		font-size: 1.4rem;

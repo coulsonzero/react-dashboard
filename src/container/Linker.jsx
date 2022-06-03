@@ -12,6 +12,9 @@ const LinkStyle = styled.a`
 	border-radius: 7px;
 	box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px 0px, rgb(0 0 0 / 2%) 0px 0px 0px 1px;
 	overflow: hidden;
+	&:hover {
+		overflow: hidden;
+	}
 	cursor: zoom-in;
 	.link-container {
 		position: relative;

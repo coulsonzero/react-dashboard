@@ -54,7 +54,7 @@ const Div = styled.div`
 	height: 100vh;
 	.app-container {
 		position: relative;
-		border-radius: 10px;
+		border-radius: var(--app-container-radius);
 		width: 100%;
 		height: 100%;
 		max-width: 1200px;

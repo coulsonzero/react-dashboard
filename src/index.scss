@@ -1,5 +1,9 @@
 @import 'antd/dist/antd.css';
 
+:root {
+    --app-container-radius: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
