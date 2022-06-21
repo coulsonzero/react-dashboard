@@ -25,6 +25,7 @@ export default class Works extends Component {
 				{ title: 'nav', to: './works/nav/demo3/index.html', src: './images/nav/3.png' },
 				{ title: 'nav', to: './works/nav/demo4/index.html', src: './images/nav/4.png' },
 				{ title: 'nav', to: './works/nav/demo5/index.html', src: './images/nav/5.png' },
+				{ title: 'nav', to: './works/nav/demo6/index.html', src: './images/nav/6.gif' },
 				{ title: 'swipper', to: './works/swipper/demo1/index.html', src: './images/swipper/1.gif', type: 'other' },
 				{ title: 'section', to: './works/section/demo1/index.html', src: './images/section/1.png', type: 'other' },
 				{ title: 'login', to: './works/login/demo1/index.html', src: './images/login/1.png' },
@@ -35,7 +36,8 @@ export default class Works extends Component {
 				{ title: 'input', to: './works/input/demo4/index.html', src: './images/input/4.png' },
 				{ title: 'FAQ', to: './works/other/FAQ/index.html', src: './images/other/faq.png' },
 				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/other/passwordGenerator.png' },
-				{ title: 'passwordGenerator', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
+				{ title: 'calendar', to: './works/other/calendar2/index.html', src: './images/other/calendar2.png' },
+				{ title: 'calendar', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
 				{ title: 'comboBox', to: './works/input/comboBox/index.html', src: './images/input/5.gif' },
 				{ title: 'button', to: './works/button/demo1/index.html', src: './images/button/1.png' },
 				{ title: 'button', to: './works/button/demo2/index.html', src: './images/button/2.gif' },
@@ -108,9 +110,9 @@ export default class Works extends Component {
 	}
 
 	setActiveBtn = (e) => {
-		flushSync(() => {
+		// flushSync(() => {
 			this.setState({ cur_btn: e.target.id })
-		})
+		// })
 	}
 
 	filterData = (e) => {
