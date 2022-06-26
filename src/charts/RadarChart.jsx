@@ -38,38 +38,32 @@ export default class PieChart extends Component {
 				center: ['40%', '50%'],
 				indicator: [
 					{
-						name: '人力资源',
+						name: 'A',
 						max: 50,
 					},
 					{
-						name: '技术',
+						name: 'B',
 						max: 50,
 					},
 					{
-						name: '产品',
+						name: 'C',
 						max: 50,
 					},
 					{
-						name: '经济交流',
+						name: 'D',
 						max: 50,
 					},
 					{
-						name: '用户信息',
+						name: 'E',
 						max: 50,
 					},
 					{
-						name: '订阅服务',
+						name: 'F',
 						max: 50,
 					},
 				],
 				splitNumber: 5,
 				startAngle: 0, //旋转的度数。
-				// name: {
-				// 	textStyle: {
-				// 		// color: "#EFF4FF",
-				// 		color: "#242425",
-				// 	},
-				// },
 				axisName: {
 					color: '#242425',
 				},
@@ -92,47 +86,33 @@ export default class PieChart extends Component {
 					type: 'radar',
 					data: [
 						{
-							name: '每日交易量',
+							name: '每日提交',
 							lineStyle: {
-								// normal: {
-								// "color": "#FF5BE2",
 								color: '#8C25FF',
 								width: 1,
-								// },
 							},
 							value: [33, 33, 46, 46, 47, 37, 44],
 							itemStyle: {
-								// normal: {
 								color: '#8C25FF',
-								// },
 							},
 							areaStyle: {
-								// normal: {
 								color: '#8C25FF',
-								// "opacity": 0.35
 								opacity: 0.2,
-								// },
 							},
 						},
 						{
-							name: '累计交易量',
+							name: '累计提交',
 							lineStyle: {
-								// normal: {
 								color: '#0078FF',
 								width: 1,
-								// },
 							},
 							value: [39, 45, 46, 41, 38, 43, 39],
 							itemStyle: {
-								// normal: {
 								color: '#0078FF',
-								// },
 							},
 							areaStyle: {
-								// normal: {
 								color: '#0078FF',
 								opacity: 0.2,
-								// },
 							},
 						},
 					],

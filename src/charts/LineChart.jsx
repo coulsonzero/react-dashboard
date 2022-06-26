@@ -61,7 +61,7 @@ export default class LineChart extends Component {
 						color: '#4E6BFF',
 					},
 				},
-				data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月'],
+				data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
 			},
 			yAxis: {
 				type: 'value',
@@ -89,10 +89,10 @@ export default class LineChart extends Component {
 			},
 			series: [
 				{
-					name: '每日访问',
+					name: '月累计访问',
 					symbol: 'circle',
 					symbolSize: 5,
-					data: [600, 800, 595, 640, 610, 900, 795, 610, 800, 760],
+					data: [600, 800, 595, 640, 610, 900, 795, 610, 800, 760, 870, 967],
 					type: 'line',
 					smooth: true,
 					areaStyle: {
@@ -131,10 +131,10 @@ export default class LineChart extends Component {
 					},
 				},
 				{
-					name: '累计访问',
+					name: '每日访问',
 					symbol: 'circle',
 					symbolSize: 5,
-					data: [430, 430, 395, 450, 380, 510, 420, 490, 610, 580],
+					data: [430, 430, 395, 450, 380, 510, 420, 490, 610, 580, 367, 567],
 					type: 'line',
 					smooth: true,
 					areaStyle: {
