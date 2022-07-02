@@ -9,7 +9,7 @@ cd build
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
-echo 'blog.coulsonzero.cn' > CNAME
+echo 'dashboard.coulsonzero.cn' > CNAME
 
 git init
 git add -A
