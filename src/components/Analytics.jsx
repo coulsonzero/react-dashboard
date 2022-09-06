@@ -31,12 +31,10 @@ export default class AntdCard extends Component {
         })
 
 		return (
-			<AnalyticsStyle>
+			<AnalyticsStyle className="section-wrapper">
 				<div className="section-title">Analytics Demo</div>
 				<div className="analytics-container">
-					<div className="creditCard-container">
-                        {credit_card_container}
-					</div>
+					<div className="creditCard-container">{credit_card_container}</div>
 					<div className="right-container">
 						<div className="rank-container">top</div>
 					</div>
@@ -46,20 +44,23 @@ export default class AntdCard extends Component {
 	}
 }
 
-const AnalyticsStyle = styled.div`
+const AnalyticsStyle = styled.section`
 	width: 100%;
+    .section-wrapper {
+        padding: 0;
+    }
 	.analytics-container {
 		display: flex;
 	}
 	.creditCard-container {
-		width: 66%;
+		width: 70%;
 		/* display: flex; */
 		/* justify-content: space-between; */
-		gap: 3rem;
+		gap: 2rem;
 		/* margin: 0 auto; */
 		overflow-x: scroll;
 		display: -webkit-box;
-		padding: 20px 40px;
+		padding: 20px 30px;
 		height: 260px;
 		&::-webkit-scrollbar {
 			width: 0.2px;
@@ -87,7 +88,6 @@ const AnalyticsStyle = styled.div`
 
 	.right-container {
 		width: 30%;
-		margin-right: 20px;
 		margin-top: 20px;
 	}
 	.rank-container {
