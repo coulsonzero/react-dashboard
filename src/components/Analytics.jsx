@@ -32,7 +32,7 @@ export default class AntdCard extends Component {
 
 		return (
 			<AnalyticsStyle className="section-wrapper">
-				<div className="section-title">Analytics Demo</div>
+				<div className="section-title">Analytics</div>
 				<div className="analytics-container">
 					<div className="creditCard-container">{credit_card_container}</div>
 					<div className="right-container">
@@ -46,9 +46,7 @@ export default class AntdCard extends Component {
 
 const AnalyticsStyle = styled.section`
 	width: 100%;
-    .section-wrapper {
-        padding: 0;
-    }
+
 	.analytics-container {
 		display: flex;
 	}

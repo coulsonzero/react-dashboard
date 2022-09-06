@@ -54,7 +54,7 @@ const CreditCardStyle = styled.div`
 	/* background-color: #e7d9a3; */
 	background: linear-gradient(#e7d9a3, #ceba6b);
 	color: #fff;
-	width: 300px;
+	width: 290px;
 	height: 180px;
 	border-radius: 14px;
 	padding: 20px;
@@ -132,7 +132,7 @@ const CreditCardStyle = styled.div`
 			height: 58px;
 			top: -6px;
 			right: -10px;
-			opacity: 0.7;
+			opacity: 0.6;
 		}
 	}
 `
