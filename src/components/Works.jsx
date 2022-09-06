@@ -20,6 +20,7 @@ export default class Works extends Component {
 				{ title: '', to: './works/homepage/demo5/index.html', src: './images/homepage/5.png' },
 				{ title: '', to: './works/homepage/demo6/index.html', src: './images/homepage/6.png' },
 				{ title: '', to: './works/homepage/demo7/index.html', src: './images/homepage/7.png' },
+				{ title: '', to: './works/homepage/demo8/index.html', src: './images/homepage/8.png' },
 				{ title: 'nav', to: './works/nav/demo1/index.html', src: './images/nav/1.png' },
 				{ title: 'nav', to: './works/nav/demo2/index.html', src: './images/nav/2.gif' },
 				{ title: 'nav', to: './works/nav/demo3/index.html', src: './images/nav/3.png' },
