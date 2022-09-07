@@ -9,8 +9,8 @@ export default class AntdCard extends Component {
 		super(props)
 		this.state = {
 			credit_card_info: [
-				{ id: '1', card_logo: ICBC, card_name: 'ICBC', account_balance: '12730', card_number: '622203 1507000******', card_date: '07/30' },
-				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '51600', card_number: '6214 8310 7113 ****', card_date: '03/22' },
+				{ id: '1', card_logo: ICBC, card_name: 'ICBC', account_balance: '103762', card_number: '622203 1507000******', card_date: '07/30' },
+				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '71684', card_number: '6214 8310 7113 ****', card_date: '03/22' },
 				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '05/31' },
 			],
 			overflow_date: '',

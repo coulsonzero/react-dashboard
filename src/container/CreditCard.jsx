@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { card_chip, BTC, ETH, visa, ICBC, card_pay } from '@/assets/card'
 
 
@@ -17,8 +17,12 @@ export default function CreditCard({ card_logo, card_name, account_balance, card
 				<img className="right" src={visa} alt="" />
 			</div>
 			<div className="middle">
-				<h2>¥ {moneyFormat(account_balance)}</h2>
+				<h2 className="balance">
+					<span>¥ </span>
+					<span className="amount">{moneyFormat(account_balance)}</span>
+				</h2>
 				<img className="chip" src={card_chip} alt="" />
+				<h2 className="pass">****</h2>
 			</div>
 			<div className="bottom">
 				<div>
@@ -36,7 +40,8 @@ export default function CreditCard({ card_logo, card_name, account_balance, card
 }
 
 function moneyFormat(num) {
-	if (num == null || num == undefined || (typeof num != 'number' && num != parseFloat(num))) {
+	if (num.includes('*')) return '*'.repeat(num.length)
+	if (num === null || num === undefined || (typeof num != 'number' && num != parseFloat(num))) {
 		return '-'
 	}
 	return parseFloat(num).toLocaleString('zh-CN', { style: 'currency', currency: 'CNY', minimumFractionDigits: '0' }).slice(1)
@@ -98,11 +103,31 @@ const CreditCardStyle = styled.div`
 		justify-content: space-between;
 		align-items: center;
 		padding: 25px 0 25px 6px;
-		h2 {
+		position: relative;
+		.balance {
 			margin: 0;
 			letter-spacing: 1px;
 			font-family: 'Kalam';
-			/* font-family: 'Nanum'; */
+			.amount {
+				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
+			}
+		}
+		&:hover .amount {
+			opacity: 1;
+		}
+		&:hover .pass {
+			opacity: 0;
+		}
+
+		.pass {
+			position: absolute;
+			color: #000;
+			font-family: 'Kalam';
+			letter-spacing: 1px;
+			transform: translateY(6px) translateX(22px);
+			transition: opacity 0.3s ease-in-out;
+			opacity: 1;
 		}
 		img {
 			width: 40px;
@@ -121,7 +146,7 @@ const CreditCardStyle = styled.div`
 		h3 {
 			font-weight: 300;
 			font-size: 97%;
-            white-space: nowrap;
+			white-space: nowrap;
 		}
 		.card_date {
 			font-weight: 300;
@@ -139,3 +164,4 @@ const CreditCardStyle = styled.div`
 		}
 	}
 `
+
