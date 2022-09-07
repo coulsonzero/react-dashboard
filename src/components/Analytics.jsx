@@ -11,7 +11,7 @@ export default class AntdCard extends Component {
 			credit_card_info: [
 				{ id: '1', card_logo: ICBC, card_name: 'ICBC', account_balance: '12730', card_number: '622203 1507000******', card_date: '07/30' },
 				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '51600', card_number: '6214 8310 7113 ****', card_date: '03/22' },
-				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '03/22' },
+				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '05/31' },
 			],
 			cur_month: '9',
 			rank_title: '月消费排行榜',
@@ -58,7 +58,7 @@ export default class AntdCard extends Component {
 					<div className="table-cell">{item.id}</div>
 					<div className="table-cell">{item.name}</div>
 					<div className="table-cell">
-						<span>¥ {item.total_expense}</span>
+						<span>{!(item.name === '...' || item.name === '') && '¥ '}{item.total_expense}</span>
 					</div>
 					<div className="table-cell">
 						<button className="more-action">
@@ -109,7 +109,7 @@ const AnalyticsStyle = styled.section`
 	}
 	.header-date {
 		display: flex;
-		input[type=date] {
+		input[type='date'] {
 			padding: 10px 20px;
 			border-radius: 30px;
 			margin-left: 30px;
@@ -158,7 +158,7 @@ const AnalyticsStyle = styled.section`
 		background: #fff;
 		border-radius: 15px;
 		color: #000;
-		height: 310px;
+		height: 307px;
 		overflow-y: scroll;
 		box-shadow: 0 2px 6px 0 rgb(136 148 171 / 20%), 0 24px 20px -24px rgb(71 82 107 / 10%);
 		&::-webkit-scrollbar {
@@ -184,7 +184,7 @@ const AnalyticsStyle = styled.section`
 			color: #787878;
 			padding: 8px;
 			white-space: nowrap;
-			max-width: 105px;
+			max-width: 120px;
 			overflow: scroll;
 			&::-webkit-scrollbar {
 				display: none;
@@ -202,19 +202,31 @@ const AnalyticsStyle = styled.section`
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
-			width: 24px;
+			width: 16px;
 			height: 16px;
 			outline: none;
 			cursor: pointer;
 			transform: translateY(3px);
-			transition: all .15s ease;
+			transition: all 0.1s ease;
+			border: 1px solid transparent;
+			border-radius: 50%;
+			color: #cacaca;
 			svg {
 				width: 100%;
 				height: 100%;
 			}
 		}
-		.more-action:hover {
-			color: red;
+		/* .table-cell:nth-child(3) {
+			border: 1px solid transparent;
+			border-radius: 50%;
+			transition: all 0.15s ease;
+		}
+		.table-cell:nth-child(3):hover {
+			border-color: #323232;
+		} */
+		.table-cell:last-child:hover .more-action {
+			color: #323232;
+			border-color: #acabab;
 		}
 	}
 `
