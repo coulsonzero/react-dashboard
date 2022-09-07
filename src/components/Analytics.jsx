@@ -13,14 +13,15 @@ export default class AntdCard extends Component {
 				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '51600', card_number: '6214 8310 7113 ****', card_date: '03/22' },
 				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '05/31' },
 			],
-			cur_month: '9',
+			// rank
+			rank_title_month: '9',
 			rank_title: '月消费排行榜',
-			columns: [
+			rank_columns: [
 				{ title: '', dataIndex: 'rank' },
 				{ title: '商家', dataIndex: 'name' },
 				{ title: '消费金额', dataIndex: 'total_expense' },
 			],
-			tableData: [
+			rank_data: [
 				{ id: '', name: '总计', total_expense: '424.03' },
 				{ id: '1', name: '蜜雪冰城', total_expense: '96.00' },
 				{ id: '2', name: '美团', total_expense: '82.00' },
@@ -28,12 +29,56 @@ export default class AntdCard extends Component {
 				{ id: '4', name: '麻辣烫', total_expense: '51.14' },
 				{ id: '5', name: '手机充值', total_expense: '50.00' },
 				{ id: '6', name: '咖啡', total_expense: '22.00' },
-				{ id: '6', name: '咖啡', total_expense: '22.00' },
 				{ id: '7', name: '腾讯视频', total_expense: '20.00' },
 				{ id: '', name: '...', total_expense: '...' },
 			],
+			// sql
+			sql_columns: [
+				{ title: '消费日期', dataIndex: 'date' },
+				{ title: '商家名称', dataIndex: 'name' },
+				{ title: '消费金额(¥)', dataIndex: 'expense' },
+				{ title: '支付方式', dataIndex: 'pay_method' },
+			],
+			sql_data: [
+				{ date: '2022-09-07 15:45', name: '蜜雪冰城', expense: '10.00', pay_method: '零钱' },
+				{ date: '2022-09-07 15:25', name: '晋三根手工刀削面', expense: '22.00', pay_method: '零钱' },
+				{ date: '2022-09-06 19:39', name: '蜜雪冰城', expense: '8.00', pay_method: '零钱' },
+				{ date: '2022-09-06 19:22', name: '晋三根手工刀削面', expense: '26.00', pay_method: '零钱' },
+				{ date: '2022-09-06 13:39', name: '蜜雪冰城', expense: '14.00', pay_method: '零钱' },
+				{ date: '2022-09-06 12:56', name: '砂锅麻辣烫', expense: '24.33', pay_method: '零钱' },
+				{ date: '2022-09-05 17:57', name: '晋三根手工刀削面', expense: '33.60', pay_method: '零钱' },
+				{ date: '2022-09-03 14:26', name: '腾讯视频', expense: '20.00', pay_method: '零钱' },
+				{ date: '2022-09-03 12:50', name: '蜜雪冰城', expense: '13.00', pay_method: '零钱' },
+				{ date: '2022-09-02 15:10', name: '咖啡', expense: '22.00', pay_method: '零钱' },
+				{ date: '2022-09-02 09:40', name: '手机充值', expense: '50.00', pay_method: '零钱' },
+				{ date: '2022-09-01 20:54', name: '蜜雪冰城', expense: '8.00', pay_method: '零钱' },
+				{ date: '2022-09-01 14:58', name: '蜜雪冰城', expense: '9.00', pay_method: '零钱' },
+				{ date: '2022-09-01 14:36', name: '北京地铁', expense: '3.00', pay_method: '零钱' },
+				{ date: '2022-09-01 13:08', name: '美团', expense: '82.00', pay_method: '零钱' },
+			],
+			sql_filter_data: [],
 		}
 	}
+
+	componentDidMount() {
+		this.initSqlFilter()
+	}
+
+	// 排行榜消费详情
+	searchClick = (name) => {
+		const { sql_data, sql_filter_data } = this.state
+		const res = name === '总计' ? sql_data : sql_data.filter((item) => item.name === name)
+		this.setState({ sql_filter_data:  res })
+	}
+
+	// 初始化表格数据
+	initSqlFilter = () => {
+		const { sql_data } = this.state
+		this.setState({
+			sql_filter_data: sql_data,
+		})
+	}
+
 	render() {
         const { credit_card_info } = this.state
 
@@ -51,30 +96,61 @@ export default class AntdCard extends Component {
         })
 
 		// rank
-		const { tableData, columns, rank_title, cur_month } = this.state
-		const tableDataRow = tableData.map((item, index) => {
+		const { rank_data, rank_columns, rank_title, rank_title_month } = this.state
+		const rankDataRow = rank_data.map((item, index) => {
 			return (
 				<div className="table-row" key={index}>
 					<div className="table-cell">{item.id}</div>
 					<div className="table-cell">{item.name}</div>
 					<div className="table-cell">
-						<span>{!(item.name === '...' || item.name === '') && '¥ '}{item.total_expense}</span>
+						<div onClick={() => {this.searchClick(item.name)}} className="amount-action">
+							<span>
+								{!(item.name === '...' || item.name === '') && '¥ '}
+								{item.total_expense}
+							</span>
+						</div>
 					</div>
 					<div className="table-cell">
-						<button className="more-action">
+						<button
+							className="more-action"
+							onClick={() => {this.searchClick(item.name)}}>
 							<HiOutlineChevronRight />
 						</button>
 					</div>
 				</div>
 			)
 		})
-		const tableColumns = columns.map((item, index) => {
+		const rankColumns = rank_columns.map((item, index) => {
 			return (
 				<div className="column-header table-cell" key={index}>
 					<div>{item.title}</div>
 				</div>
 			)
 		})
+
+
+		// table
+		const { sql_columns, sql_data, sql_filter_data } = this.state
+		const sqlColumns = sql_columns.map((item, index) => {
+			return (
+				<div className="column-header table-cell" key={index}>
+					<div>{item.title}</div>
+				</div>
+			)
+		})
+		const sqlDataRow = sql_filter_data.map((item, index) => {
+			return (
+				<div className="table-row" key={index}>
+					<div className="table-cell">{item.date}</div>
+					<div className="table-cell">{item.name}</div>
+					<div className="table-cell">-{item.expense}</div>
+					<div className="table-cell">{item.pay_method}</div>
+				</div>
+			)
+		})
+
+
+
 
 		return (
 			<AnalyticsStyle className="section-wrapper">
@@ -88,12 +164,19 @@ export default class AntdCard extends Component {
 					{/* rank */}
 					<div className="right-container">
 						<div className="rank-container">
-							<div className="rank-name">{cur_month + rank_title}</div>
+							<div className="rank-name">{rank_title_month + rank_title}</div>
 							<div className="custom-table">
-								<div className="table-header">{tableColumns}</div>
-								{tableDataRow}
+								<div className="table-header">{rankColumns}</div>
+								{rankDataRow}
 							</div>
 						</div>
+					</div>
+				</div>
+				{/* sql */}
+				<div className="sql-container">
+					<div className="custom-table">
+						<div className="table-header">{sqlColumns}</div>
+						<div className="table-data">{sqlDataRow}</div>
 					</div>
 				</div>
 			</AnalyticsStyle>
@@ -150,7 +233,7 @@ const AnalyticsStyle = styled.section`
 	}
 
 	.right-container {
-		width: 26%;
+		width: 28%;
 		margin: 20px;
 		margin-right: 0;
 	}
@@ -196,6 +279,9 @@ const AnalyticsStyle = styled.section`
 		.table-row {
 			display: table-row-group;
 		}
+		.amount-action {
+			cursor: pointer;
+		}
 		.more-action {
 			border: none;
 			background-color: transparent;
@@ -226,7 +312,32 @@ const AnalyticsStyle = styled.section`
 		} */
 		.table-cell:last-child:hover .more-action {
 			color: #323232;
-			border-color: #acabab;
+			/* border-color: #acabab; */
+		}
+	}
+	.rank-container .table-cell:nth-child(4),
+	.rank-container .table-cell:nth-child(3):not(.column-header) {
+		border: 1px solid transparent;
+		border-radius: 50%;
+		transition: all 0.1s ease;
+	}
+	.rank-container .table-cell:nth-child(4):hover,
+	.rank-container .table-cell:nth-child(3):not(.column-header):hover {
+		border-color: #323232;
+	}
+	.sql-container {
+		height: 200px;
+		overflow-y: scroll;
+		border-radius: 20px;
+		.custom-table {
+			padding-left: 40px;
+			/* min-height: 200px; */
+			.table-cell {
+				width: 25%;
+			}
+			.table-data {
+				display: contents;
+			}
 		}
 	}
 `
