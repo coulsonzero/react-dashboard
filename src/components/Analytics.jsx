@@ -13,9 +13,9 @@ export default class AntdCard extends Component {
 				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '51600', card_number: '6214 8310 7113 ****', card_date: '03/22' },
 				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '05/31' },
 			],
-			overflow_date: '2022-09-02',
+			overflow_date: '',
 			// rank
-			rank_title_month: '9',
+			rank_title_month: '',
 			rank_title: '月消费排行榜',
 			rank_columns: [
 				{ title: '', dataIndex: 'rank' },
@@ -83,15 +83,20 @@ export default class AntdCard extends Component {
 
 	// 初始化日期
 	initInputData = () => {
-		const dateTime = new Date()
-		const res = dateTime.toLocaleString().split(' ')[0].replaceAll('/', '-').split('-')
+		const res = new Date().toLocaleString().split(' ')[0].replaceAll('/', '-').split('-')
 		this.setState({
 			overflow_date: res[0] + '-' + res[1].padStart(2, '0') + '-' + res[2].padStart(2, '0'),
+		})
+		this.setState({
+			rank_title_month: Number(res[1]),
 		})
 	}
 	// 日期输入框change事件
 	changeDate = (e) => {
 		this.setState({ overflow_date: e.target.value })
+		this.setState({
+			rank_title_month: Number(this.state.overflow_date.split('-')[1]),
+		})
 	}
 
 	render() {
@@ -359,7 +364,10 @@ const AnalyticsStyle = styled.section`
 			}
 			.table-cell:nth-child(3) {
 				text-align: right;
-				font-weight: 800;
+			}
+			.table-cell:nth-child(3):not(.column-header) {
+				/* font-weight: 600; */
+				/* color: #323232; */
 			}
 			.table-cell:nth-child(4) {
 				text-align: center;
