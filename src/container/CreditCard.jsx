@@ -59,8 +59,9 @@ const CreditCardStyle = styled.div`
 	border-radius: 14px;
 	padding: 20px;
 	/* box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3); */
-	box-shadow: 2px 1rem 2rem rgb(80 79 79 / 30%);
-	margin-right: 20px;
+	/* box-shadow: 2px 1rem 2rem rgb(80 79 79 / 30%); */
+	box-shadow: 2px 2px 1.2rem rgb(80 79 79 / 30%);
+	margin-right: 30px;
 	.top {
 		display: flex;
 		justify-content: space-between;

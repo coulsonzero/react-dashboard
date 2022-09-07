@@ -6,7 +6,7 @@ import scrollreveal from 'scrollreveal'
 import { MdSpaceDashboard } from 'react-icons/md'
 import { AiOutlineDotChart, AiOutlineAntDesign } from 'react-icons/ai'
 import { IoSettingsOutline } from 'react-icons/io5'
-import { FaAirbnb } from 'react-icons/fa'
+import { FaAirbnb, FaLungsVirus } from 'react-icons/fa'
 import { SiVectorworks } from 'react-icons/si'
 
 export default class Sidebar extends React.Component {
@@ -15,6 +15,7 @@ export default class Sidebar extends React.Component {
 		this.state = {
 			links: [
 				{ icon: MdSpaceDashboard, title: 'Dashboard' },
+				{ icon: FaLungsVirus, title: 'COVID-19' },
 				{ icon: AiOutlineDotChart, title: 'Charts' },
 				{ icon: FaAirbnb, title: 'Analytics' },
 				{ icon: SiVectorworks, title: 'Works' },

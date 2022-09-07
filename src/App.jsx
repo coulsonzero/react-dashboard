@@ -6,6 +6,7 @@ import Works from '@/components/Works'
 import AntdCard from '@/components/AntdCard'
 import Charts from '@/components/Charts'
 import Analytics from '@/components/Analytics'
+import COVID_19 from '@/components/COVID-19'
 
 export default class App extends Component {
 	constructor(props) {
@@ -21,11 +22,12 @@ export default class App extends Component {
 				<div className="app-container">
 					<Sidebar setCurLink={this.setCurLink} currentLink={this.state.currentLink} />
 					{this.state.currentLink === 0 && <Dashboard />}
-					{this.state.currentLink === 1 && <Charts />}
-					{this.state.currentLink === 2 && <Analytics />}
-					{this.state.currentLink === 3 && <Works />}
-					{this.state.currentLink === 4 && <AntdCard />}
-					{this.state.currentLink === 5 && <div>setting</div>}
+					{this.state.currentLink === 1 && <COVID_19 />}
+					{this.state.currentLink === 2 && <Charts />}
+					{this.state.currentLink === 3 && <Analytics />}
+					{this.state.currentLink === 4 && <Works />}
+					{this.state.currentLink === 5 && <AntdCard />}
+					{this.state.currentLink === 6 && <div>setting</div>}
 				</div>
 			</Div>
 		)
@@ -36,7 +38,7 @@ export default class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ currentLink: 2 })
+		this.setState({ currentLink: 3 })
 	}
 }
 
