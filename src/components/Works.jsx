@@ -36,11 +36,11 @@ export default class Works extends Component {
 				{ title: 'input', to: './works/input/demo3/index.html', src: './images/input/3.gif' },
 				{ title: 'input', to: './works/input/demo4/index.html', src: './images/input/4.png' },
 				{ title: 'FAQ', to: './works/other/FAQ/index.html', src: './images/other/faq.png' },
-				{ title: 'SvgAnimate', to: './works/other/SvgAnimate/index.html', src: './images/other/svgAnimate.gif' },
-				{ title: 'scrollAnimate', to: './works/other/scrollAnimate/index.html', src: './images/other/iphoneSESrcoll.gif' },
-				{ title: 'scrollAnimate', to: './works/other/scrollAnimate2/index.html', src: './images/other/scrollAnimate2.gif' },
-				{ title: 'scrollAnimate', to: './works/other/scrollAnimate3/index.html', src: './images/other/textScroll.gif' },
-				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/other/passwordGenerator.png' },
+				{ title: 'scrollAnimate', to: './works/scrollanimate/SvgAnimate/index.html', src: './images/scrollAnimate/svgAnimate.gif' },
+				{ title: 'scrollAnimate', to: './works/scrollanimate/scrollAnimate/index.html', src: './images/scrollAnimate/iphoneSESrcoll.gif' },
+				{ title: 'scrollAnimate', to: './works/scrollanimate/scrollAnimate2/index.html', src: './images/scrollAnimate/scrollAnimate2.gif' },
+				{ title: 'scrollAnimate', to: './works/scrollanimate/scrollAnimate3/index.html', src: './images/scrollAnimate/textScroll.gif' },
+				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/scrollAnimate/passwordGenerator.png' },
 				{ title: 'calendar', to: './works/other/calendar2/index.html', src: './images/other/calendar2.png' },
 				{ title: 'calendar', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
 				{ title: 'comboBox', to: './works/input/comboBox/index.html', src: './images/input/5.gif' },
@@ -68,7 +68,7 @@ export default class Works extends Component {
 			// btn-active
 			cur_btn: '0',
 			// buts
-			btn_filter: ['All', 'Homepage', 'Nav', 'Input', 'Button', '3D', 'Canvas', 'Other'],
+			btn_filter: ['All', 'Homepage', 'Nav', 'Input', 'Button', '3D', 'Canvas', 'scroll', 'Other'],
 		}
 	}
 
