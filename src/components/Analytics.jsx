@@ -197,6 +197,10 @@ export default class AntdCard extends Component {
 					</div>
 				</div>
 				{/* sql */}
+				<div className="sql-wrapper">
+					<button><span>year</span></button>
+					<button>month</button>
+				</div>
 				<div className="sql-container">
 					<div className="custom-table">
 						<div className="table-header">{sqlColumns}</div>
@@ -381,5 +385,43 @@ const AnalyticsStyle = styled.section`
 				display: contents;
 			}
 		}
+	}
+
+	.sql-wrapper {
+		button {
+			position: relative;
+			padding: 6px 30px;
+			background: transparent;
+			border: 1px solid #323232;
+			border-radius: 20px;
+			margin: 0 10px 10px;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			overflow: hidden;
+		}
+		button:hover {
+			background: #323232;
+			color: #fff;
+		}
+		/* button:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			background: #000;
+			transition: all 0.2s ease;
+			z-index: 0;
+		}
+		button:hover:before {
+			width: 100%;
+		}
+		button span {
+			color: red;
+		}
+		button:hover span {
+
+		} */
 	}
 `
