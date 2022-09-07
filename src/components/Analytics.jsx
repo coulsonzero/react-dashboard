@@ -35,8 +35,9 @@ export default class AntdCard extends Component {
 			],
 			// sql
 			sql_columns: [
-				{ title: '消费日期', dataIndex: 'date' },
+				{ title: '日期', dataIndex: 'date' },
 				{ title: '商家名称', dataIndex: 'name' },
+				{ title: '描述', dataIndex: 'description' },
 				{ title: '消费金额(¥)', dataIndex: 'expense' },
 				{ title: '支付方式', dataIndex: 'pay_method' },
 			],
@@ -55,7 +56,7 @@ export default class AntdCard extends Component {
 				{ date: '2022-09-01 20:54', name: '蜜雪冰城', expense: '8.00', pay_method: '零钱' },
 				{ date: '2022-09-01 14:58', name: '蜜雪冰城', expense: '9.00', pay_method: '零钱' },
 				{ date: '2022-09-01 14:36', name: '北京地铁', expense: '3.00', pay_method: '零钱' },
-				{ date: '2022-09-01 13:08', name: '美团', expense: '82.00', pay_method: '零钱' },
+				{ date: '2022-09-01 13:08', name: '美团', expense: '82.00', pay_method: '零钱', description: '烤肉自助餐' },
 			],
 			sql_filter_data: [],
 		}
@@ -168,7 +169,8 @@ export default class AntdCard extends Component {
 				<div className="table-row" key={index}>
 					<div className="table-cell">{item.date}</div>
 					<div className="table-cell">{item.name}</div>
-					<div className="table-cell">-{item.expense}</div>
+					<div className="table-cell">{item.description}</div>
+					<div className="table-cell">- {item.expense}</div>
 					<div className="table-cell">{item.pay_method}</div>
 				</div>
 			)
@@ -355,11 +357,12 @@ const AnalyticsStyle = styled.section`
 		overflow-y: scroll;
 		border-radius: 16px;
 		.custom-table {
-			padding-left: 40px;
+			/* padding-left: 40px; */
+			padding: 10px 20px 10px 30px;
 			border-radius: 16px;
 			/* min-height: 200px; */
 			.table-cell {
-				width: 20%;
+				/* width: 20%; */
 				letter-spacing: 1px;
 			}
 			.table-cell:nth-child(3) {
@@ -368,6 +371,7 @@ const AnalyticsStyle = styled.section`
 			.table-cell:nth-child(3):not(.column-header) {
 				/* font-weight: 600; */
 				/* color: #323232; */
+				/* width: 20px; */
 			}
 			.table-cell:nth-child(4) {
 				text-align: center;

@@ -36,6 +36,7 @@ export default class Works extends Component {
 				{ title: 'input', to: './works/input/demo3/index.html', src: './images/input/3.gif' },
 				{ title: 'input', to: './works/input/demo4/index.html', src: './images/input/4.png' },
 				{ title: 'FAQ', to: './works/other/FAQ/index.html', src: './images/other/faq.png' },
+				{ title: 'SvgAnimate', to: './works/other/SvgAnimate/index.html', src: './images/other/svgAnimate.gif' },
 				{ title: 'passwordGenerator', to: './works/other/passwordGenerator/index.html', src: './images/other/passwordGenerator.png' },
 				{ title: 'calendar', to: './works/other/calendar2/index.html', src: './images/other/calendar2.png' },
 				{ title: 'calendar', to: './works/other/calendar/calendar.html', src: './images/other/calendar.gif' },
