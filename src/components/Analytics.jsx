@@ -13,6 +13,7 @@ export default class AntdCard extends Component {
 				{ id: '2', card_logo: CMB, card_name: 'CMB', account_balance: '51600', card_number: '6214 8310 7113 ****', card_date: '03/22' },
 				{ id: '3', card_logo: CCB, card_name: 'CCB', account_balance: '32172', card_number: '6217 0000 1017 0644 ****', card_date: '05/31' },
 			],
+			overflow_date: '2022-09-02',
 			// rank
 			rank_title_month: '9',
 			rank_title: '月消费排行榜',
@@ -25,7 +26,7 @@ export default class AntdCard extends Component {
 				{ id: '', name: '总计', total_expense: '424.03' },
 				{ id: '1', name: '蜜雪冰城', total_expense: '96.00' },
 				{ id: '2', name: '美团', total_expense: '82.00' },
-				{ id: '3', name: '晋三根手工刀削面', total_expense: '59.60' },
+				{ id: '3', name: '刀削面', total_expense: '59.60' },
 				{ id: '4', name: '麻辣烫', total_expense: '51.14' },
 				{ id: '5', name: '手机充值', total_expense: '50.00' },
 				{ id: '6', name: '咖啡', total_expense: '22.00' },
@@ -62,13 +63,14 @@ export default class AntdCard extends Component {
 
 	componentDidMount() {
 		this.initSqlFilter()
+		this.initInputData()
 	}
 
 	// 排行榜消费详情
 	searchClick = (name) => {
 		const { sql_data, sql_filter_data } = this.state
-		const res = name === '总计' ? sql_data : sql_data.filter((item) => item.name === name)
-		this.setState({ sql_filter_data:  res })
+		const res = name === '总计' ? sql_data : sql_data.filter((item) => item.name.includes(name))
+		this.setState({ sql_filter_data: res })
 	}
 
 	// 初始化表格数据
@@ -79,21 +81,34 @@ export default class AntdCard extends Component {
 		})
 	}
 
-	render() {
-        const { credit_card_info } = this.state
+	// 初始化日期
+	initInputData = () => {
+		const dateTime = new Date()
+		const res = dateTime.toLocaleString().split(' ')[0].replaceAll('/', '-').split('-')
+		this.setState({
+			overflow_date: res[0] + '-' + res[1].padStart(2, '0') + '-' + res[2].padStart(2, '0'),
+		})
+	}
+	// 日期输入框change事件
+	changeDate = (e) => {
+		this.setState({ overflow_date: e.target.value })
+	}
 
-        const credit_card_container = credit_card_info.map((item, index) => {
-            return (
-                <CreditCard
-                    card_logo={item.card_logo}
-                    card_name={item.card_name}
-                    account_balance={item.account_balance}
-                    card_number={item.card_number}
-                    card_date={item.card_date}
-                    key={index}
-                />
-            )
-        })
+	render() {
+		const { credit_card_info } = this.state
+
+		const credit_card_container = credit_card_info.map((item, index) => {
+			return (
+				<CreditCard
+					card_logo={item.card_logo}
+					card_name={item.card_name}
+					account_balance={item.account_balance}
+					card_number={item.card_number}
+					card_date={item.card_date}
+					key={index}
+				/>
+			)
+		})
 
 		// rank
 		const { rank_data, rank_columns, rank_title, rank_title_month } = this.state
@@ -103,7 +118,11 @@ export default class AntdCard extends Component {
 					<div className="table-cell">{item.id}</div>
 					<div className="table-cell">{item.name}</div>
 					<div className="table-cell">
-						<div onClick={() => {this.searchClick(item.name)}} className="amount-action">
+						<div
+							onClick={() => {
+								this.searchClick(item.name)
+							}}
+							className="amount-action">
 							<span>
 								{!(item.name === '...' || item.name === '') && '¥ '}
 								{item.total_expense}
@@ -113,7 +132,9 @@ export default class AntdCard extends Component {
 					<div className="table-cell">
 						<button
 							className="more-action"
-							onClick={() => {this.searchClick(item.name)}}>
+							onClick={() => {
+								this.searchClick(item.name)
+							}}>
 							<HiOutlineChevronRight />
 						</button>
 					</div>
@@ -127,7 +148,6 @@ export default class AntdCard extends Component {
 				</div>
 			)
 		})
-
 
 		// table
 		const { sql_columns, sql_data, sql_filter_data } = this.state
@@ -149,15 +169,12 @@ export default class AntdCard extends Component {
 			)
 		})
 
-
-
-
 		return (
 			<AnalyticsStyle className="section-wrapper">
 				<div className="section-title">Analytics</div>
 				<div className="header-date">
 					<h1>Overview</h1>
-					<input type="date" />
+					<input type="date" value={this.state.overflow_date} onChange={this.changeDate} />
 				</div>
 				<div className="analytics-container">
 					<div className="creditCard-container">{credit_card_container}</div>
@@ -315,6 +332,9 @@ const AnalyticsStyle = styled.section`
 			/* border-color: #acabab; */
 		}
 	}
+	.rank-container .table-cell:nth-child(2) {
+		min-width: 110px;
+	}
 	.rank-container .table-cell:nth-child(4),
 	.rank-container .table-cell:nth-child(3):not(.column-header) {
 		border: 1px solid transparent;
@@ -328,12 +348,22 @@ const AnalyticsStyle = styled.section`
 	.sql-container {
 		height: 200px;
 		overflow-y: scroll;
-		border-radius: 20px;
+		border-radius: 16px;
 		.custom-table {
 			padding-left: 40px;
+			border-radius: 16px;
 			/* min-height: 200px; */
 			.table-cell {
-				width: 25%;
+				width: 20%;
+				letter-spacing: 1px;
+			}
+			.table-cell:nth-child(3) {
+				text-align: right;
+				font-weight: 800;
+			}
+			.table-cell:nth-child(4) {
+				text-align: center;
+				width: 36%;
 			}
 			.table-data {
 				display: contents;
