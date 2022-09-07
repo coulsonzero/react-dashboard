@@ -60,6 +60,7 @@ const CreditCardStyle = styled.div`
 	padding: 20px;
 	/* box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3); */
 	box-shadow: 2px 1rem 2rem rgb(80 79 79 / 30%);
+	margin-right: 20px;
 	.top {
 		display: flex;
 		justify-content: space-between;
@@ -82,7 +83,7 @@ const CreditCardStyle = styled.div`
 				.card_logo {
 					width: 100%;
 					height: 100%;
-					transform: scale(1.5);
+					transform: scale(1.3);
 				}
 			}
 		}
@@ -119,6 +120,7 @@ const CreditCardStyle = styled.div`
 		h3 {
 			font-weight: 300;
 			font-size: 97%;
+            white-space: nowrap;
 		}
 		.card_date {
 			font-weight: 300;
