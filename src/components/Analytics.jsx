@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { card_chip, BTC, ETH, visa, ICBC, CMB, CCB } from '@/assets/card'
 import CreditCard from '@/container/CreditCard'
+import { card_chip, BTC, ETH, visa, ICBC, CMB, CCB } from '@/assets/card'
 import { HiOutlineChevronRight } from 'react-icons/hi'
+import axios from 'axios'
+import { flushSync } from 'react-dom'
+
 
 export default class AntdCard extends Component {
 	constructor(props) {
@@ -23,22 +26,23 @@ export default class AntdCard extends Component {
 				{ title: '消费金额', dataIndex: 'total_expense' },
 			],
 			rank_data: [
-				{ id: '', name: '总计', total_expense: '424.03' },
-				{ id: '1', name: '蜜雪冰城', total_expense: '96.00' },
-				{ id: '2', name: '美团', total_expense: '82.00' },
-				{ id: '3', name: '刀削面', total_expense: '59.60' },
-				{ id: '4', name: '麻辣烫', total_expense: '51.14' },
-				{ id: '5', name: '手机充值', total_expense: '50.00' },
-				{ id: '6', name: '咖啡', total_expense: '22.00' },
-				{ id: '7', name: '腾讯视频', total_expense: '20.00' },
-				{ id: '', name: '...', total_expense: '...' },
+				{ name: '总计', total_expense: '424.03' },
+				{ name: '蜜雪冰城', total_expense: '96.00' },
+				{ name: '美团', total_expense: '82.00' },
+				{ name: '刀削面', total_expense: '59.60' },
+				{ name: '麻辣烫', total_expense: '51.14' },
+				{ name: '手机充值', total_expense: '50.00' },
+				{ name: '咖啡', total_expense: '22.00' },
+				{ name: '腾讯视频', total_expense: '20.00' },
+				{ name: '...', total_expense: '...' },
 			],
 			// sql
 			sql_columns: [
-				{ title: '日期', dataIndex: 'date' },
-				{ title: '商家名称', dataIndex: 'name' },
+				{ title: '', dataIndex: 'id' },
+				{ title: '交易时间', dataIndex: 'date' },
+				{ title: '商家', dataIndex: 'name' },
 				{ title: '描述', dataIndex: 'description' },
-				{ title: '消费金额(¥)', dataIndex: 'expense' },
+				{ title: '金额(元)', dataIndex: 'expense' },
 				{ title: '支付方式', dataIndex: 'pay_method' },
 			],
 			sql_data: [
@@ -63,8 +67,45 @@ export default class AntdCard extends Component {
 	}
 
 	componentDidMount() {
+		this.axiosFetchRank()
+		this.axiosFetchData()
 		this.initSqlFilter()
 		this.initInputData()
+		setTimeout(() => {
+			console.log(this.state.sql_filter_data)
+		}, 1000)
+
+	}
+
+
+	// 接口请求: 排行榜
+	axiosFetchRank = async () => {
+		await axios
+			.get('http://localhost:8080/api/v1/rank')
+			.then((res) => {
+				this.setState({
+					rank_data: res.data.data
+				})
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+	}
+
+	// 接口请求: 表格数据
+	axiosFetchData = async () => {
+		await axios
+			.get('http://localhost:8080/api/v1/bills')
+			.then((res) => {
+				// console.log(JSON.stringify(res.data, null, 2))
+				this.setState({
+					sql_filter_data: res.data.data,
+					sql_data: res.data.data
+				})
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 
 	// 排行榜消费详情
@@ -92,6 +133,7 @@ export default class AntdCard extends Component {
 			rank_title_month: Number(res[1]),
 		})
 	}
+
 	// 日期输入框change事件
 	changeDate = (e) => {
 		this.setState({ overflow_date: e.target.value })
@@ -121,9 +163,10 @@ export default class AntdCard extends Component {
 		const rankDataRow = rank_data.map((item, index) => {
 			return (
 				<div className="table-row" key={index}>
-					<div className="table-cell">{item.id}</div>
+					<div className="table-cell">{index}</div>
 					<div className="table-cell">{item.name}</div>
-					<div className="table-cell">
+					<div
+						className="table-cell">
 						<div
 							onClick={() => {
 								this.searchClick(item.name)
@@ -135,12 +178,12 @@ export default class AntdCard extends Component {
 							</span>
 						</div>
 					</div>
-					<div className="table-cell">
-						<button
-							className="more-action"
-							onClick={() => {
-								this.searchClick(item.name)
-							}}>
+					<div
+						className="table-cell"
+						onClick={() => {
+							this.searchClick(item.name)
+						}}>
+						<button className="more-action">
 							<HiOutlineChevronRight />
 						</button>
 					</div>
@@ -167,6 +210,7 @@ export default class AntdCard extends Component {
 		const sqlDataRow = sql_filter_data.map((item, index) => {
 			return (
 				<div className="table-row" key={index}>
+					<div className="table-cell">{index + 1}</div>
 					<div className="table-cell">{item.date}</div>
 					<div className="table-cell">{item.name}</div>
 					<div className="table-cell">{item.description}</div>
@@ -175,6 +219,8 @@ export default class AntdCard extends Component {
 				</div>
 			)
 		})
+
+
 
 		return (
 			<AnalyticsStyle className="section-wrapper">
@@ -197,10 +243,12 @@ export default class AntdCard extends Component {
 					</div>
 				</div>
 				{/* sql */}
-				<div className="sql-wrapper">
-					<button><span>year</span></button>
+				{/* <div className="sql-wrapper">
+					<button>
+						<span>year</span>
+					</button>
 					<button>month</button>
-				</div>
+				</div> */}
 				<div className="sql-container">
 					<div className="custom-table">
 						<div className="table-header">{sqlColumns}</div>
@@ -292,7 +340,6 @@ const AnalyticsStyle = styled.section`
 			display: table-cell;
 			font-size: 12px;
 			line-height: 16px;
-			color: #787878;
 			padding: 8px;
 			white-space: nowrap;
 			max-width: 120px;
@@ -300,6 +347,9 @@ const AnalyticsStyle = styled.section`
 			&::-webkit-scrollbar {
 				display: none;
 			}
+		}
+		.table-cell:not(.table-header) {
+			color: #787878;
 		}
 		.table-header {
 			display: table-header-group;
@@ -344,7 +394,8 @@ const AnalyticsStyle = styled.section`
 		}
 	}
 	.rank-container .table-cell:nth-child(2) {
-		min-width: 110px;
+		min-width: 106px;
+		max-width: 106px;
 	}
 	.rank-container .table-cell:nth-child(4),
 	.rank-container .table-cell:nth-child(3):not(.column-header) {
@@ -357,29 +408,31 @@ const AnalyticsStyle = styled.section`
 		border-color: #323232;
 	}
 	.sql-container {
-		height: 200px;
+		height: 263px;
 		overflow-y: scroll;
 		border-radius: 16px;
 		.custom-table {
-			/* padding-left: 40px; */
-			padding: 10px 20px 10px 30px;
+			padding: 10px 30px 20px 30px;
 			border-radius: 16px;
-			/* min-height: 200px; */
+			.table-header {
+				position: sticky;
+				top: 0px;
+				background: #4b4b4b;
+				font-weight: 700;
+				div {
+					color: #fff;
+				}
+			}
 			.table-cell {
-				/* width: 20%; */
 				letter-spacing: 1px;
+				width: 20%;
 			}
-			.table-cell:nth-child(3) {
+			.table-cell:first-child {
+				width: 5%;
+			}
+			.table-cell:nth-child(5),
+			.table-cell:last-child {
 				text-align: right;
-			}
-			.table-cell:nth-child(3):not(.column-header) {
-				/* font-weight: 600; */
-				/* color: #323232; */
-				/* width: 20px; */
-			}
-			.table-cell:nth-child(4) {
-				text-align: center;
-				width: 36%;
 			}
 			.table-data {
 				display: contents;
