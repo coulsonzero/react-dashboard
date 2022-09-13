@@ -7,6 +7,10 @@ import axios from 'axios'
 import { flushSync } from 'react-dom'
 
 
+
+axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+axios.defaults.timeout = 3000
+
 export default class AntdCard extends Component {
 	constructor(props) {
 		super(props)
@@ -81,7 +85,7 @@ export default class AntdCard extends Component {
 	// 接口请求: 排行榜
 	axiosFetchRank = async () => {
 		await axios
-			.get('http://localhost:8080/api/v1/rank')
+			.get('/rank')
 			.then((res) => {
 				this.setState({
 					rank_data: res.data.data
@@ -95,7 +99,7 @@ export default class AntdCard extends Component {
 	// 接口请求: 表格数据
 	axiosFetchData = async () => {
 		await axios
-			.get('http://localhost:8080/api/v1/bills')
+			.get('/bills')
 			.then((res) => {
 				// console.log(JSON.stringify(res.data, null, 2))
 				this.setState({

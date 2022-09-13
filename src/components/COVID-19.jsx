@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -7,47 +8,72 @@ export default class COVID_19 extends React.Component {
 		super(props)
 		this.state = {
 			tableData: [
-				{ area: '全国', local_add: '323', outside_add: '57', silent: '1247', high_risk_area: '3428', exist_confirmed: '5709', total_confirmed: '6144277', total_cure: '325510', total_death: '25088' },
-				{ area: '北京', local_add: '14', outside_add: '4', silent: '0', high_risk_area: '12', exist_confirmed: '53', total_confirmed: '4025', total_cure: '3963', total_death: '9' },
+				{
+					area: '全国',
+					unOverseasInputNewAdd: '323',
+					overseasInputRelative: '57',
+					asymptomaticLocalRelative: '1247',
+					curConfirm: '5709',
+					confirmed: '6144277',
+					cured: '325510',
+					died: '25088',
+				},
+				{ area: '北京', unOverseasInputNewAdd: '14', overseasInputRelative: '4', asymptomaticLocalRelative: '0', curConfirm: '53', confirmed: '4025', cured: '3963', died: '9' },
 			],
 			columns: [
 				{ title: '地区', dataIndex: 'area' },
-				{ title: '本土新增', dataIndex: 'local_add' },
-				{ title: '境外新增', dataIndex: 'outside_add' },
-				{ title: '无症状', dataIndex: 'silent' },
-				{ title: '中高风险地区', dataIndex: 'high_risk_area' },
-				{ title: '现有确诊', dataIndex: 'exist_confirmed' },
-				{ title: '累计确诊', dataIndex: 'total_confirmed' },
-				{ title: '累计治愈', dataIndex: 'total_cure' },
-				{ title: '累计死亡', dataIndex: 'total_death' },
+				{ title: '本土新增', dataIndex: 'unOverseasInputNewAdd' },
+				{ title: '境外新增', dataIndex: 'overseasInputRelative' },
+				{ title: '无症状', dataIndex: 'asymptomaticLocalRelative' },
+				// { title: '中高风险地区', dataIndex: 'high_risk_area' },
+				{ title: '现有确诊', dataIndex: 'curConfirm' },
+				{ title: '累计确诊', dataIndex: 'confirmed' },
+				{ title: '累计治愈', dataIndex: 'cured' },
+				{ title: '累计死亡', dataIndex: 'died' },
 			],
 		}
 	}
-	render() {
-        const { tableData, columns } = this.state
-        const tableDataRow = tableData.map((item, index) => {
-            return (
-                <div className="table-row" key={index}>
-                    <div className="table-cell emphassize">{item.area}</div>
-                    <div className="table-cell emphassize">{item.local_add}</div>
-                    <div className="table-cell">{item.outside_add}</div>
-                    <div className="table-cell">{item.silent}</div>
-                    <div className="table-cell">{item.high_risk_area}</div>
-                    <div className="table-cell emphassize">{item.exist_confirmed}</div>
-                    <div className="table-cell">{item.total_confirmed}</div>
-                    <div className="table-cell">{item.total_cure}</div>
-                    <div className="table-cell">{item.total_death}</div>
-                </div>
-            )
-        })
 
-        const tableColumns = columns.map((item, index) => {
-            return (
-                <div className="column-header table-cell" key={index}>
-                    <div className={(item.dataIndex === "local_add" || item.dataIndex === "exist_confirmed") && "emphassize" }>{item.title}</div>
-                </div>
-            )
-        })
+	componentDidMount() {
+		this.getCovid19()
+	}
+
+	getCovid19 = async () => {
+		await axios
+			.get('/covid-19')
+			.then((res) => {
+				this.setState({
+					tableData: res.data.data,
+				})
+			})
+			.catch((err) => console.log('fetch error: get covid-19'))
+	}
+
+	render() {
+		const { tableData, columns } = this.state
+		const tableDataRow = tableData.map((item, index) => {
+			return (
+				<div className="table-row" key={index}>
+					<div className="table-cell emphassize">{item.area}</div>
+					<div className="table-cell emphassize">{item.unOverseasInputNewAdd}</div>
+					<div className="table-cell">{item.overseasInputRelative}</div>
+					<div className="table-cell">{item.asymptomaticLocalRelative}</div>
+					{/* <div className="table-cell">{item.high_risk_area}</div> */}
+					<div className="table-cell emphassize">{item.curConfirm}</div>
+					<div className="table-cell">{item.confirmed}</div>
+					<div className="table-cell">{item.cured}</div>
+					<div className="table-cell">{item.died}</div>
+				</div>
+			)
+		})
+
+		const tableColumns = columns.map((item, index) => {
+			return (
+				<div className="column-header table-cell" key={index}>
+					<div className={item.dataIndex === 'unOverseasInputNewAdd' || item.dataIndex === 'curConfirm' ? 'emphassize' : undefined}>{item.title}</div>
+				</div>
+			)
+		})
 
 		return (
 			<COVID_19_Style className="section-wrapper">
@@ -60,8 +86,7 @@ export default class COVID_19 extends React.Component {
 				</div>
 			</COVID_19_Style>
 		)
-
-    }
+	}
 }
 
 
