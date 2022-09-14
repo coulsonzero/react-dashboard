@@ -79,6 +79,7 @@ export default class COVID_19 extends React.Component {
 			<COVID_19_Style className="section-wrapper">
 				<div className="section-title">COVID-19</div>
 				<div className="section-wrapper">
+					<h5>数据统计截止 {new Date().toLocaleDateString()}</h5>
 					<div className="custom-table">
 						<div className="table-header">{tableColumns}</div>
 						{tableDataRow}
