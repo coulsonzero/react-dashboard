@@ -38,7 +38,7 @@ export default class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ currentLink: 1 })
+		this.setState({ currentLink: 0 })
 	}
 }
 

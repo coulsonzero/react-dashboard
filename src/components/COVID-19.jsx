@@ -8,17 +8,17 @@ export default class COVID_19 extends React.Component {
 		super(props)
 		this.state = {
 			tableData: [
-				{
-					area: '全国',
-					unOverseasInputNewAdd: '323',
-					overseasInputRelative: '57',
-					asymptomaticLocalRelative: '1247',
-					curConfirm: '5709',
-					confirmed: '6144277',
-					cured: '325510',
-					died: '25088',
-				},
-				{ area: '北京', unOverseasInputNewAdd: '14', overseasInputRelative: '4', asymptomaticLocalRelative: '0', curConfirm: '53', confirmed: '4025', cured: '3963', died: '9' },
+				// {
+				// 	area: '全国',
+				// 	unOverseasInputNewAdd: '323',
+				// 	overseasInputRelative: '57',
+				// 	asymptomaticLocalRelative: '1247',
+				// 	curConfirm: '5709',
+				// 	confirmed: '6144277',
+				// 	cured: '325510',
+				// 	died: '25088',
+				// },
+				// { area: '北京', unOverseasInputNewAdd: '14', overseasInputRelative: '4', asymptomaticLocalRelative: '0', curConfirm: '53', confirmed: '4025', cured: '3963', died: '9' },
 			],
 			columns: [
 				{ title: '地区', dataIndex: 'area' },

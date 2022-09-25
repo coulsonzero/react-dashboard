@@ -24,7 +24,7 @@
 		"start": "craco start",
 		"build": "craco build",
 		"deploy": "bash deploy.sh",
-		"server": "docker-compose up --build -d nginx-app"
+		"server": "craco build && docker-compose up --build -d nginx-app"
 	},
 	"eslintConfig": {
 		"extends": [
