@@ -103,7 +103,7 @@ export default class AntdCard extends Component {
 			.then((res) => {
 				// console.log(JSON.stringify(res.data, null, 2))
 				this.setState({
-					sql_filter_data: res.data.data,
+					sql_filter_data: res.data.data === null ? [] : res.data.data,
 					sql_data: res.data.data
 				})
 			})
