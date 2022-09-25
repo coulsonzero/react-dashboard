@@ -72,3 +72,9 @@ module.exports = {
 $ yarn add eslint --dev
 $ yarn create @eslint/config 	# or `npm init @eslint/config`
 ```
+
+## docker
+
+```sh
+$ docker-compose up --build -d nginx-app
+```
