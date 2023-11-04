@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "./static/css/main.e53da63d.css",
+    "main.js": "./static/js/main.77c61003.js",
+    "static/media/1.gif": "./static/media/1.3cb175c1cde90422087e.gif",
+    "static/media/NanumMyeongjo-Regular.ttf": "./static/media/NanumMyeongjo-Regular.45779720465b4ac53530.ttf",
+    "static/media/3.gif": "./static/media/3.5d5537b5ffe9af265dab.gif",
+    "static/media/5.gif": "./static/media/5.652dd5f581391134ced1.gif",
+    "static/media/robot.gif": "./static/media/robot.0617a41936621e9697cd.gif",
+    "static/media/7.png": "./static/media/7.c9f7f08984c9804a2c00.png",
+    "static/media/2.gif": "./static/media/2.80d7663afeecbffc5e64.gif",
+    "static/media/Kalam-Regular.ttf": "./static/media/Kalam-Regular.e37c29fe344eb0c767e7.ttf",
+    "static/media/6.gif": "./static/media/6.8b4d1b396a40da89a458.gif",
+    "static/media/card_pay.png": "./static/media/card_pay.07060d3f4580fdca0a96.png",
+    "static/media/4.gif": "./static/media/4.452904c501201e1955c1.gif",
+    "static/media/CMB.png": "./static/media/CMB.1e8a6bb8ca14257d7dd3.png",
+    "static/media/CCB.png": "./static/media/CCB.199ba74e02708cedb675.png",
+    "static/media/8.png": "./static/media/8.2226dab9054a27746827.png",
+    "static/media/perfil.png": "./static/media/perfil.b32c2306909853864646.png",
+    "static/media/9.gif": "./static/media/9.a47daddb27467e65ea3d.gif",
+    "static/media/card_chip.png": "./static/media/card_chip.595d2c91e3b2244be923.png",
+    "static/media/author.jpg": "./static/media/author.e16761305e3b4dd23c6b.jpg",
+    "static/media/ICBC.png": "./static/media/ICBC.cbe5d64808e073df5f58.png",
+    "index.html": "./index.html",
+    "main.e53da63d.css.map": "./static/css/main.e53da63d.css.map",
+    "main.77c61003.js.map": "./static/js/main.77c61003.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e53da63d.css",
+    "static/js/main.77c61003.js"
+  ]
+}
