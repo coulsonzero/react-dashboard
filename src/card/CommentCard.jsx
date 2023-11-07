@@ -8,7 +8,12 @@ import { robot, perfil, author } from '@/assets/imgs'
 const { TextArea } = Input
 
 const CommentList = ({ comments }) => (
-	<List dataSource={comments} header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`} itemLayout="horizontal" renderItem={(props) => <Comment {...props} />} />
+	<List
+        dataSource={comments}
+        header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
+        itemLayout="horizontal"
+        renderItem={(props) => <Comment {...props} />}
+    />
 )
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (

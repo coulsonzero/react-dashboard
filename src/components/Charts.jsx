@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import IncomeExpendBar from '@/charts/Charts/IncomeExpendBar'
 
 export default class Charts extends Component {
-  render() {
-    return (
+    render() {
+        return (
 			<Div className="section-wrapper">
 				<div className="section-title">Charts</div>
 				<div className="chart-container">
@@ -14,7 +14,7 @@ export default class Charts extends Component {
 				</div>
 			</Div>
 		)
-  }
+    }
 }
 
 const Div = styled.div`
