@@ -17,8 +17,6 @@ export default class PieChart extends Component {
 		let myChart = echarts.init(this.pieRef.current)
 
 		myChart.setOption({
-			// color:['#8C25FF','#0078FF'],
-			// "backgroundColor": "#1A253A",
 			legend: [
 				{
 					top: '70%',
@@ -63,7 +61,7 @@ export default class PieChart extends Component {
 					},
 				],
 				splitNumber: 5,
-				startAngle: 0, //旋转的度数。
+				startAngle: 0,
 				axisName: {
 					color: '#242425',
 				},
