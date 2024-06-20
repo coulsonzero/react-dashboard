@@ -19,24 +19,12 @@ export default class Dashboard extends Component {
 				<div className="main-container">
 					<div className="section-title">Dashboard</div>
 					<div className="chart-container">
-						<div className="chartBox">
-							<BarChart />
-						</div>
-						<div className="chartBox">
-							<RadarChart />
-						</div>
-						<div className="chartBox">
-							<LineChart />
-						</div>
-						<div className="chartBox">
-							<PieChart />
-						</div>
-						<div className="chartBox">
-							<GuageChart />
-						</div>
-						<div className="chartBox">
-							<PicBar />
-						</div>
+						<div className="chartBox"><BarChart /></div>
+						<div className="chartBox"><RadarChart /></div>
+						<div className="chartBox"><LineChart /></div>
+						<div className="chartBox"><PieChart /></div>
+						<div className="chartBox"><GuageChart /></div>
+						<div className="chartBox"><PicBar /></div>
 					</div>
 					<div className="table-container">
 						<Tableview />

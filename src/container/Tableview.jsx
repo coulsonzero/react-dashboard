@@ -103,7 +103,7 @@ const DIV = styled.div`
 					background-color: #e2e9f8;
 					color: #5a8ff7;
 				}
-				&.jpg:before {
+				&.jpg::before {
 					content: 'JPG';
 					background-color: #e4e2f1;
 					color: #302d7d;
