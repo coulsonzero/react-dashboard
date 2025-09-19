@@ -33,12 +33,14 @@ export default class Sidebar extends React.Component {
 			<Div>
 				<a className="side-logo">Dashboard</a>
 				<div className="side-wrapper">
-					{/* <div className="side-title">MENU</div> */}
 					<ul className="side-menu">
 						{links.map((item, index) => {
 							return (
-								// <li className={currentLink === index ? "active" : undefined} onClick={() => this.setState({currentLink: index})} key={index}>
-								<li className={currentLink === index ? 'active' : undefined} onClick={() => setCurLink(index)} key={index}>
+								<li
+									className={currentLink === index ? 'active' : undefined}
+									onClick={() => setCurLink(index)}
+									key={index}
+								>
 									<a href={'#' + item.title} className="side-item">
 										<div className="side-link">{<item.icon />}</div>
 										<span className="side-title">{item.title}</span>
@@ -172,6 +174,5 @@ const Div = styled.div`
 				}
 			}
 		}
-		*/
 	}
 `

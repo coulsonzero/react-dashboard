@@ -21,10 +21,10 @@
 		"web-vitals": "^2.1.0"
 	},
 	"scripts": {
-		"start": "craco start",
-		"build": "craco build",
+		"start": "npm run start",
+		"build": "npm run build",
 		"deploy": "bash deploy.sh",
-		"server": "craco build && docker-compose up --build -d nginx-app"
+		"server": "npm run build && docker-compose up --build -d nginx-app"
 	},
 	"eslintConfig": {
 		"extends": [
